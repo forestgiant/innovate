@@ -1,0 +1,27 @@
+.sweep {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+    width: 100%;
+    background-image: url("/img/test.jpg");
+    // background-size: cover;
+    background-position: center;
+
+    .sweep-top, .sweep-bottom {
+        display: flex;
+        position: relative;
+
+        .line {
+            position: absolute;
+        }
+    }
+
+    .sweep-top {
+        flex-direction: column;
+    }
+
+    .sweep-bottom {
+        flex-direction: column-reverse;
+    }
+}
