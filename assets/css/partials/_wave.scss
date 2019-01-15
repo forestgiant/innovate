@@ -1,0 +1,137 @@
+// Universal Wave Styles
+.wave {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.wave-top, .wave-bottom {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.line, .mask {
+    width: 100%;
+    height: auto;
+}
+
+.line {
+    position: absolute;
+}
+
+.mask {
+    filter: $filterwhite;
+    z-index: $middle;
+}
+
+.wave-photo {
+    background: center / cover no-repeat url("/img/photos/hero.jpg");
+
+    .wave-top {
+        :nth-child(2){
+            filter: $filterpink;
+            @include fliphv;
+            z-index: $bottom;
+        }
+        :nth-child(3){
+            filter: $filtergreen;
+            z-index: $top;
+        }
+    }
+
+    .wave-interior {
+        height: 500px;
+    }
+
+    .wave-bottom {
+        :nth-child(2){
+            filter: $filtergreen;
+            @include fliph;
+            z-index: $bottom;
+        }
+        :nth-child(3){
+            filter: $filterpink;
+            z-index: $top;
+            // top: -30px;
+        }
+    }
+}
+
+.wave-cta-mid {
+    background: $fgnavy;
+
+    .wave-top {
+        :nth-child(1){
+            @include fliph;
+        }
+
+        :nth-child(2){
+            filter: $filterpink;
+            z-index: $top;
+            @include fliph;
+        }
+
+        :nth-child(3){
+            filter: $filteryellow;
+            z-index: $bottom;
+            @include fliphv;
+        }
+    }  
+
+    .wave-interior {
+        height: 600px;
+        text-align: center;
+        max-width: 950px;
+    }
+
+    .wave-bottom {
+        :nth-child(2){
+           filter: $filtergreen;
+           @include fliph;
+        }
+    }
+}
+
+.wave-process {
+    position: relative;
+    background: center / cover no-repeat url("/img/photos/kevin.jpg");
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(270deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,1) 100%);
+    }
+
+    .wave-top {
+        :nth-child(2){
+            z-index: $top;
+            @include fliph;
+        }
+        :nth-child(3){
+            filter: $filtergreen;
+            z-index: $bottom;
+            @include flipv;
+        }
+    }
+    .wave-interior {
+        height: 600px;
+        width: 50%;
+        align-self: flex-start;
+        z-index: $top;
+        margin-left: 10%;
+
+        :nth-child(1) {
+            margin-bottom: .5em;
+        }
+
+        :nth-child(2) {
+            width: 90%;
+            align-self: flex-start;
+        }
+    }
+
+}

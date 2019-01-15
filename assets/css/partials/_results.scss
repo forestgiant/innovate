@@ -1,0 +1,87 @@
+#results h2 {
+    max-width: 600px;
+    margin-bottom: 1.5em;
+}
+
+.results-grid {
+    flex-wrap: wrap;
+
+    div {
+        flex-basis: 50%;  
+        min-width: 250px;
+    }
+}
+
+.results-text {
+    display: flex;
+    justify-content: center;
+
+    p {
+        width: 75%;
+        border-left: 1px solid $fgorange;  
+        padding: 0 1em;
+    }
+}
+
+.results-img {
+    display: flex;
+    justify-content: center;
+    svg {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+.quote-logos {
+    flex-wrap: wrap;
+    margin-top: 4em;
+
+    div {
+        flex-basis: 50%;  
+        min-width: 250px;
+        // background: gold;
+    }
+}
+
+.logofarm {
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+}
+
+.logo:nth-of-type(1){
+    background: center / contain no-repeat url("/img/logos/ge.svg");
+}
+
+.logo:nth-of-type(2){
+    background: center / contain no-repeat url("/img/logos/ups.svg");
+}
+
+.logo:nth-of-type(3){
+    background: center / contain no-repeat url("/img/logos/irobot.svg");
+}
+
+.logo:nth-of-type(4){
+    background: center / contain no-repeat url("/img/logos/realtree.svg");
+}
+
+.quote {
+
+    blockquote {
+        font-family: $source;
+        font-size: 48px;
+        font-style: italic;
+        font-weight: 300;
+        margin-bottom: .5em;
+    }
+
+    p {
+        font-family: $open;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+}

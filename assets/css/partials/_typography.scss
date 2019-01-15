@@ -1,13 +1,50 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title;
+    font-family: $gastro;
     color: $fgnavy;
+    padding: .25em 0;
+    line-height: 1.15;
 }
 
-p {
-    font-family: $body;
-    line-height: 1.25;
+h1 {
+    font-size: 104px;
 }
 
 h2 {
-    font-size: 2.5em;
+    // font-size: 2.5em;
+    font-size: 56px;
+}
+
+h3 {
+    font-family: $open;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+h4 {
+    font-family: $gastro;
+    font-size: 64px;
+    color: $fgtomato;
+}
+
+p {
+    font-family: $source;
+    font-weight: 200;
+    font-size: 24px;
+    color: $fgblack;
+    line-height: 1.25;
+}
+
+.biggie {
+    font-size: 32px;
+    padding: .25em 0;
+}
+
+.thicc {
+    font-family: $gastro;
+    font-size: 40px;
+    color: $fgnavy;
+}
+
+strong {
+    font-weight: 700;
 }

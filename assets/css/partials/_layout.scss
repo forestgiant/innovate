@@ -1,7 +1,19 @@
 // The hero layout is separate from these styles. Go to that specific partial to access.
 
-section {
-margin: 0 10%;
-padding: 2em;
-background: lightgrey;
+.maxed-out {
+width: 80%;
+max-width: 1400px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

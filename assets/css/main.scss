@@ -1,12 +1,51 @@
 // Variables
-$title: 'gastromond', sans-serif;
-$body: 'Open Sans', sans-serif;
+$gastro: 'gastromond', sans-serif;
+$open: 'Open Sans', sans-serif;
+$source: 'Souce Sans Pro', sans-serif;
 $fgorange: #DF6C58;
+$fgtomato: #FC5847;
 $fgnavy: #263963;
 $fggreen: #50AA7B;
-$fgyellow: #DFB045;
+$fgyellow: #E6AF21;
 $fgpink: #ECAFB5;
+$fgblack: #343434;
+$filterpink: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
+$filtergreen: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
+$filteryellow: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
+$filterblue: hue-rotate(-134deg) brightness(45%) saturate(83%) contrast(100%);
+$filterblack: hue-rotate(-74deg) brightness(42%) saturate(0%) contrast(100%);
+$filterwhite: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
+$top: 10;
+$middle: 5;
+$bottom: 0;
 
+
+// Mixins
+
+@mixin fliph {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+@mixin flipv {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
+}
+
+@mixin fliphv {
+-moz-transform: scale(-1, -1);
+-o-transform: scale(-1, -1);
+-webkit-transform: scale(-1, -1);
+transform: scale(-1, -1);
+}
 
 // Loadout
 @import 'partials/reset';
@@ -15,4 +54,8 @@ $fgpink: #ECAFB5;
 @import 'partials/layout';
 @import 'partials/nav';
 @import 'partials/hero';
+@import 'partials/transformation';
 @import 'partials/sweep';
+@import 'partials/product';
+@import 'partials/wave';
+@import 'partials/results';
