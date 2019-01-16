@@ -1,15 +1,25 @@
 #transformation {
+    width: 100%;
 
-    :nth-child(2){
+    div {
         justify-content: space-between;
         flex-wrap: wrap;
     }
 }
 
 .transformation-info {
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 30%;
+    min-width: 300px;
     text-align: center;
 
     p {
-        width: 375px;
+        // width: 375px;
+    }
+
+    img {
+        width: 300px;
+        margin: 1em 0;
     }
 }

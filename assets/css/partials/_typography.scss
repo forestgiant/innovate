@@ -68,17 +68,18 @@ strong {
         font-family: $gastro;
         color: $fggrey;
         font-size: 2em;
+        z-index: -10;
     }
 
     blockquote:before {
+        top: -15px;
+        left: -35px;
         content: "\201C";
     }
 
     blockquote:after {
         content: "\201D";
     }
-
-
 
     p {
         color: $fgnavy;

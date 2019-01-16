@@ -1,6 +1,10 @@
-#results h2 {
-    max-width: 600px;
-    margin-bottom: 1.5em;
+#results {
+    width: 100%;
+
+    h2 {
+        max-width: 600px;
+        margin-bottom: 1.5em;
+    }
 }
 
 .results-grid {
@@ -26,6 +30,7 @@
 .results-img {
     display: flex;
     justify-content: center;
+    
     svg {
         width: 80%;
         height: 80%;
