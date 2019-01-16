@@ -2,49 +2,89 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $gastro;
     color: $fgnavy;
     padding: .25em 0;
-    line-height: 1.15;
 }
 
 h1 {
-    font-size: 104px;
+    font-size: 88px;
+    line-height: 1;
 }
 
 h2 {
-    // font-size: 2.5em;
-    font-size: 56px;
+    font-size: 50px;
 }
 
 h3 {
     font-family: $open;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 26px;
 }
 
 h4 {
     font-family: $gastro;
-    font-size: 64px;
+    font-size: 56px;
     color: $fgtomato;
+    line-height: 1.15;
 }
 
 p {
     font-family: $source;
     font-weight: 200;
-    font-size: 24px;
+    font-size: 20px;
     color: $fgblack;
-    line-height: 1.25;
+    line-height: 1.4;
 }
 
 .biggie {
-    font-size: 32px;
+    font-size: 24px;
     padding: .25em 0;
 }
 
 .thicc {
     font-family: $gastro;
-    font-size: 40px;
     color: $fgnavy;
+    font-size: 34px;
+    line-height: 1.15;
 }
 
 strong {
     font-weight: 700;
+}
+
+.quote {
+
+    blockquote {
+        font-family: $source;
+        color: $fgnavy;
+        font-size: 38px;
+        font-style: italic;
+        font-weight: 200;
+        margin-bottom: .5em;
+        line-height: 1.15;
+        position: relative;
+    }
+
+    blockquote:before, blockquote:after {
+        position: absolute;
+        font-family: $gastro;
+        color: $fggrey;
+        font-size: 2em;
+    }
+
+    blockquote:before {
+        content: "\201C";
+    }
+
+    blockquote:after {
+        content: "\201D";
+    }
+
+
+
+    p {
+        color: $fgnavy;
+        font-family: $open;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
 }

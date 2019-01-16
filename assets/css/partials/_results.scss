@@ -67,21 +67,3 @@
 .logo:nth-of-type(4){
     background: center / contain no-repeat url("/img/logos/realtree.svg");
 }
-
-.quote {
-
-    blockquote {
-        font-family: $source;
-        font-size: 48px;
-        font-style: italic;
-        font-weight: 300;
-        margin-bottom: .5em;
-    }
-
-    p {
-        font-family: $open;
-        font-size: 20px;
-        text-transform: uppercase;
-    }
-
-}
