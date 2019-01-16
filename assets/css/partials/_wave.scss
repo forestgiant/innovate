@@ -9,10 +9,9 @@
     display: flex;
     width: 100%;
 }
-
 .line, .mask {
     width: 100%;
-    height: auto;
+    height: 10vw;
 }
 
 .line {
@@ -26,6 +25,7 @@
 
 .wave-photo {
     background: center / cover no-repeat url("/img/photos/hero.jpg");
+    margin: 4em 0;
 
     .wave-top {
         :nth-child(2){
@@ -40,10 +40,16 @@
     }
 
     .wave-interior {
-        height: 500px;
+        height: 40vw;
+        min-height: 250px;
     }
 
     .wave-bottom {
+
+        .mask{
+            // display: none;
+        }
+
         :nth-child(2){
             filter: $filtergreen;
             @include fliph;
@@ -79,10 +85,11 @@
     }  
 
     .wave-interior {
-        height: 600px;
-        text-align: center;
+        height: 50vw;
+        max-height: 600px;
         max-width: 950px;
-    }
+        text-align: center;
+        }
 
     .wave-bottom {
         :nth-child(2){
@@ -103,7 +110,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(270deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(270deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,1) 100%);
     }
 
     .wave-top {
@@ -118,8 +125,11 @@
         }
     }
     .wave-interior {
-        height: 600px;
+        height: 25vw;
+        min-height: 475px;
         width: 50%;
+        min-width: 600px;
+        max-width: 1200px;
         align-self: flex-start;
         z-index: $top;
         margin-left: 10%;
