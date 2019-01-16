@@ -143,5 +143,70 @@
             align-self: flex-start;
         }
     }
+}
 
+// END CTA SECTION
+
+.wave-cta-end {
+    background: $fgnavy;
+
+    .wave-top {
+        :nth-child(1){
+            // @include fliph;
+        }
+
+        :nth-child(2){
+            filter: $filtergreen;
+            z-index: $top;
+        }
+
+        :nth-child(3){
+            filter: $filteryellow;
+            z-index: $bottom;
+            @include flipv;
+        }
+    }  
+
+    .wave-interior {
+        justify-content: space-between;
+        height: 40vw;
+        max-height: 600px;
+        width: 80%;
+        max-width: 1200px;
+
+        p {
+            color: white;
+        }
+
+
+        div:first-child {
+            flex: 1.25;
+            text-align: left;
+        }
+
+        div:last-child {
+            flex: 1;
+            text-align: center;
+            
+            p {
+                font-size: 20px;
+            }
+        }
+
+        }
+
+
+}
+
+
+.cta-button {
+    display: inline-block;
+    font-family: $gastro;
+    font-size: 24px;
+    color: $fgnavy;
+    background: $fgyellow;
+    box-shadow: 0 8px 19px 0 rgba(0,0,0,0.5);
+    padding: 1em 2.5em;
+    margin: 1.5em 0;
+    text-decoration: none;
 }
