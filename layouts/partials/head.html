@@ -17,6 +17,7 @@
     {{ if eq .Params.relcanon "true"}}<link href="{{ .Params.relcanon_url }}" rel="canonical" />{{ end }}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/iia4pra.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,700" rel="stylesheet">
@@ -24,6 +25,7 @@
     {{ $style := resources.Get "/css/main.scss" | toCSS }}
     {{ $sheet := $style | minify | fingerprint }}
     <link type="text/css" rel="stylesheet" href="{{ $sheet.RelPermalink }}" integrity="{{ $sheet.Data.Integrity }}" media="screen"/>
+    
 
     <!-- Open Graph/Twitter -->
     <meta property="og:url" content="{{ .Permalink }}" />
@@ -35,12 +37,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@forestgiant">
     <!-- End Open Graph/Twitter -->
-
     
 
 </head>
 
-<body class="flex-column">
+<body>
   <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVZVXQ6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

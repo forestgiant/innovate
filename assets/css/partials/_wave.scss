@@ -2,6 +2,7 @@
 .wave {
     width: 100%;
     justify-content: space-between;
+    margin: 4em 0;
 }
 
 .wave-top, .wave-bottom {
@@ -25,7 +26,6 @@
 
 .wave-photo {
     background: center / cover no-repeat url("/img/photos/hero.jpg");
-    margin: 4em 0;
 
     .wave-top {
         :nth-child(2){
