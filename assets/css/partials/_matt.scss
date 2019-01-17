@@ -207,6 +207,10 @@
   max-width: fit-content;
 }
 
+.reverse-mask {
+  display: none;
+}
+
 /*-------------------------  
    Piece staggering 
   -------------------------*/
@@ -258,6 +262,24 @@
 }
 
 @media(max-width: 1024px) {
+
+  .title-text h1 {
+    font-size: 3.5em;
+  }
+
+  #text-set-01 h6 {
+    font-size: 14px; 
+    margin: 0 0 1rem;
+  }
+  
+}
+
+@media(max-width: 768px) {
+  #image-set-01 {
+    margin: 0 auto;
+    height: 15% !important;
+  }
+
   .validation-container {
     padding: 0 3rem;
     display: block;
@@ -265,6 +287,10 @@
 
   #validation-end {
     z-index: 9999;
+  }
+
+  .scale-people-up {
+    top: -160% !important;
   }
 
   .column-1,
@@ -278,28 +304,28 @@
     width: 100%;
   }
 
-  #image-set-01 {
-    margin: 0 auto;
-    height: 15% !important;
+  .reverse-mask {
+    position: absolute;
+    display: block;
+    filter: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
+    transform: scaleX(-1);
+    height: 80px;
+    top: -80px;
   }
 
-  .scale-people-up {
-    top: -160% !important;
+  .wave-process .wave-top :nth-child(2) {
+    top: -44%;
   }
 
-  .title-text h1 {
-    font-size: 3.5em;
+  .wave-process .wave-top :nth-child(3) {
+    top: -70%;
   }
 
-  #text-set-01 h6 {
-    font-size: 14px; 
-    margin: 0 0 1rem;
-  }
-}
-
-@media(max-width: 768px) {
   #text-set-01 {
-    padding-top: 100px;
+    padding-top: 80px;
+  }
+  .body-text {
+    padding-top: 1rem;
   }
   .body-text h3 {
     font-size: 24px;
@@ -309,42 +335,43 @@
   .body-text h6 {
     font-size: 12px;
     letter-spacing: 6px;
+  } 
+
+  .divider {
+    margin: 1rem 0;
+  }
+}
+
+@media(max-width: 500px) {
+  .body-text {
+    padding-top: 1rem;
   }
   .title-text h1 {
-    font-size: 2.5em;
+    font-size: 1.5em;
+    line-height: 1.5em;
   }
-
-  @media(max-width: 500px) {
-    .body-text {
-      padding-top: 1rem;
-    }
-    .title-text h1 {
-      font-size: 1.5em;
-      line-height: 1.5em;
-    }
-    .body-text span > span {
-      font-size: 12px;
-    }
-    .divider {
-      margin: .75rem 0;
-    }
-    .body-text h3 {
-      font-size: 16px;
-      line-height: 24px;
-    }
-    #text-set-01 {
-      padding-top: 80px;
-    }
-    #text-set-01 h6, 
-    .body-text h6 {
-      font-size: 8px;
-      letter-spacing: 3px;
-    }
-    .body-text span > span::after {
-      padding: 0 4px;
-    }
-    .body-text h3:nth-child(3) {
-      margin-bottom: .75rem;
-    }
+  .body-text span > span {
+    font-size: 12px;
+  }
+  .divider {
+    margin: .75rem 0;
+  }
+  .body-text h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  #text-set-01 {
+    padding-top: 80px;
+  }
+  #text-set-01 h6, 
+  .body-text h6 {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+  .body-text span > span::after {
+    padding: 0 4px;
+  }
+  .body-text h3:nth-child(3) {
+    margin-bottom: .75rem;
   }
 }
