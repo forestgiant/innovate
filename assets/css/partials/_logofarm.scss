@@ -1,0 +1,82 @@
+// .logo {
+//     height: 200px;
+//     width: 200px;
+//     background: gold;
+// }
+
+.client-row-1{
+    margin-top: 4vw;
+}
+.client-row-2{
+    margin-bottom: 5vw;
+    margin-top: -1vw;
+}
+
+.client-logo {
+    position: relative;
+}
+
+.client-row-1 > .client-logo {
+    margin: 1vw;
+}
+
+.client-row-2 > .client-logo{
+    margin: 1vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.client-row-2 .logo-container {
+    height: 10vw;
+    width: 10vw;
+}
+
+
+.logo {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 15vw;
+    width: 15vw;
+    max-width: 200px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+
+#ge {
+    background: center / contain no-repeat url("/img/logos/ge.svg");
+}
+
+#ups {
+    background: center / contain no-repeat url("/img/logos/ups.svg");
+}
+
+#irobot {
+    background: center / contain no-repeat url("/img/logos/irobot.svg");
+}
+
+#realtree {
+    background: center / contain no-repeat url("/img/logos/realtree.svg");
+}
+
+#bf {
+    background: center / contain no-repeat url("/img/logos/brown-forman.svg");
+}
+
+#atria {
+    background: center / contain no-repeat url("/img/logos/atria.svg");
+}
+
+#lge {
+    background: center / contain no-repeat url("/img/logos/lge.svg");
+}
+
+#baf {
+    background: center / contain no-repeat url("/img/logos/big-ass.svg");
+}
+
+#fa {
+    background: center / contain no-repeat url("/img/logos/flying-axes.svg");
+}
+
