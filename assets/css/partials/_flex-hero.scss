@@ -1,0 +1,24 @@
+header {
+    height: 600px;
+}
+
+.hero-container {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1400px;
+    margin: 4em;
+}
+
+.hero-container div {
+    flex: 50%;
+    margin: 1em;
+}
+
+.hero-container div:nth-of-type(1){
+    text-align: center;
+}
+
+#logo {
+    width: 500px;
+}

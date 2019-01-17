@@ -1,0 +1,32 @@
+header {
+    width: 100%;
+    background: #fff;
+}
+
+#hero {
+    height: 600px;
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr 1fr 2fr 4fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    h1 {
+        position: static !important;
+        grid-column: 2/span 3;
+        grid-row: 3;
+    }
+
+    p {
+        position: static !important;
+        grid-column: 2/span 2;
+        grid-row: 4;
+    }
+
+    figure {  
+        grid-column: 5/span 2;
+        grid-row: 3/span 2;
+
+            img {
+                width: 400px;
+            }
+    }
+}
