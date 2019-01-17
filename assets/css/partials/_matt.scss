@@ -2,16 +2,22 @@
    Containers
   -------------------------*/
 
+#validation-start {
+  margin-bottom: 0;
+}
+
 .validation-container {
-  height: calc(100vh - 120px);
+  display: flex;
+  position: relative;
+  height: 100vh;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem 3rem;
-  position: relative;
+  padding: 0 3rem;
 }
 
 .column-1 {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   float: left;
   width: 55%;
   z-index: 2;
@@ -26,7 +32,7 @@
   z-index: 999;
 }
 
-.body-text-container {
+#body-text-container {
   position: relative;
 }
 
