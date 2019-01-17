@@ -39,8 +39,7 @@
 /*------------------------- 
    Titles & copy
   -------------------------*/
-#text-set-01 {
-  background: #fff !important;;
+#text-set-01 { 
   z-index: 999; 
 }
 
@@ -295,5 +294,57 @@
   #text-set-01 h6 {
     font-size: 14px; 
     margin: 0 0 1rem;
+  }
+}
+
+@media(max-width: 768px) {
+  #text-set-01 {
+    padding-top: 100px;
+  }
+  .body-text h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  #text-set-01 h6,
+  .body-text h6 {
+    font-size: 12px;
+    letter-spacing: 6px;
+  }
+  .title-text h1 {
+    font-size: 2.5em;
+  }
+
+  @media(max-width: 500px) {
+    .body-text {
+      padding-top: 1rem;
+    }
+    .title-text h1 {
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
+    .body-text span > span {
+      font-size: 12px;
+    }
+    .divider {
+      margin: .75rem 0;
+    }
+    .body-text h3 {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    #text-set-01 {
+      padding-top: 80px;
+    }
+    #text-set-01 h6, 
+    .body-text h6 {
+      font-size: 8px;
+      letter-spacing: 3px;
+    }
+    .body-text span > span::after {
+      padding: 0 4px;
+    }
+    .body-text h3:nth-child(3) {
+      margin-bottom: .75rem;
+    }
   }
 }
