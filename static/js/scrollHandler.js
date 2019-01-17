@@ -16,15 +16,7 @@ window.onload = function(fn, wait) {
     offset: waveOffsetBegin,
   })
   .setPin('#main')
-  .addTo(controller);
- 
-  new ScrollMagic.Scene({
-    duration: 3500,
-    offset: waveOffsetBegin *  5,
-  })
-  .setPin('.validation-container')
-  .reverse(true)
-  .addTo(controller);
+  .addTo(controller); 
   
   //---------------------------------------------------------
   // text-set-02
