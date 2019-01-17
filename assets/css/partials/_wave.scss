@@ -103,7 +103,7 @@
 
 .wave-process {
     position: relative;
-    background: center / cover no-repeat url("/img/photos/kevin.jpg");
+    background: center / cover no-repeat url("/img/photos/process.jpg");
 
     &:before {
         content: '';
@@ -112,7 +112,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(270deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(270deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.8) 100%);
     }
 
     .wave-top {
