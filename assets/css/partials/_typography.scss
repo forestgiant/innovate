@@ -54,38 +54,58 @@ strong {
 
     blockquote {
         font-family: $source;
-        color: $fgnavy;
-        font-size: 38px;
+        color: $fgblack;
+        font-size: 40px;
         font-style: italic;
         font-weight: 200;
         margin-bottom: .5em;
         line-height: 1.15;
-        position: relative;
+        max-width: 850px;
     }
 
     blockquote:before, blockquote:after {
-        position: absolute;
+        display: block;
         font-family: $gastro;
         color: $fggrey;
-        font-size: 2em;
+        font-size: 2.5em;
         z-index: -10;
     }
 
     blockquote:before {
-        top: -15px;
-        left: -35px;
         content: "\201C";
+        margin-bottom: -40px;
     }
 
     blockquote:after {
         content: "\201D";
+        margin-top: 30px;
+        margin-bottom: -40px;
     }
 
     p {
         color: $fgnavy;
         font-family: $open;
-        font-size: 18px;
+        font-size: 20px;
         text-transform: uppercase;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h4 {
+        font-size: 40px;
+    }
+
+    p, .biggie {
+        font-size: 1.25em;
+    }
+
+    blockquote p  {
+        font-size: .5em;
     }
 
 }

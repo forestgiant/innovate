@@ -12,7 +12,7 @@
 
     div {
         flex-basis: 50%;  
-        min-width: 250px;
+        min-width: 300px;
     }
 }
 
@@ -24,51 +24,100 @@
         width: 75%;
         border-left: 1px solid $fgorange;  
         padding: 0 1em;
+        margin: 1em 0;
     }
 }
 
 .results-img {
     display: flex;
     justify-content: center;
-    
+
     svg {
         width: 80%;
         height: 80%;
+        margin: 1em 0;
     }
 }
 
-.quote-logos {
-    flex-wrap: wrap;
-    margin-top: 4em;
-
-    div {
-        flex-basis: 50%;  
-        min-width: 250px;
-        // background: gold;
-    }
+.quote {
+    padding: 5em 0;
+    text-align: center;
 }
 
-.logofarm {
-    flex-wrap: wrap;
-}
+
+// .quote-logos {
+//     flex-wrap: wrap;
+//     margin-top: 4em;
+//     justify-content: space-around;
+// }
+
+// .quote, .logofarm {
+//     width: 40%;
+//     min-width: 400px;
+// }
+
+// .logofarm {
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+//     // width: 500px;
+// }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    height: 200px;
+    width: 200px;
+    background: gold;
 }
 
-.logo:nth-of-type(1){
+#ge {
     background: center / contain no-repeat url("/img/logos/ge.svg");
 }
 
-.logo:nth-of-type(2){
+#ups {
     background: center / contain no-repeat url("/img/logos/ups.svg");
 }
 
-.logo:nth-of-type(3){
+#irobot {
     background: center / contain no-repeat url("/img/logos/irobot.svg");
 }
 
-.logo:nth-of-type(4){
+#realtree {
     background: center / contain no-repeat url("/img/logos/realtree.svg");
+}
+
+@media only screen and (max-width: 750px) {
+
+    .results-grid div {
+        flex-basis: 100%;
+        margin: 1em 0;
+        text-align: center;
+    }
+
+    .results-text p {
+        border: none;
+    }
+
+    .results-grid div:nth-of-type(1){
+        order: 1;
+    }
+
+    .results-grid div:nth-of-type(2){
+        order: 2;
+    }
+
+    .results-grid div:nth-of-type(3){
+        order: 4;
+    }
+
+    .results-grid div:nth-of-type(4){
+        order: 3;
+    }
+
+    .results-grid div:nth-of-type(5){
+        order: 5;
+    }
+
+    .results-grid div:nth-of-type(6){
+        order: 6;
+    }
+
 }

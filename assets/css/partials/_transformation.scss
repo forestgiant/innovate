@@ -2,7 +2,7 @@
     width: 100%;
 
     div {
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-wrap: wrap;
     }
 }
@@ -13,9 +13,10 @@
     width: 30%;
     min-width: 300px;
     text-align: center;
+    margin: 0 10px;
 
     p {
-        // width: 375px;
+        padding: 0 1em;
     }
 
     img {

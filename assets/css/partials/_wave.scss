@@ -8,7 +8,7 @@
 .wave-cap {
     width: 100%;
     justify-content: space-between;
-    margin-top: 4em
+    margin-top: 4em;
 }
 
 .wave-top, .wave-bottom {
@@ -16,6 +16,7 @@
     display: flex;
     width: 100%;
 }
+
 .line, .mask {
     width: 100%;
     height: 10vw;
@@ -46,15 +47,11 @@
     }
 
     .wave-interior {
-        height: 40vw;
+        height: 30vw;
         min-height: 250px;
     }
 
     .wave-bottom {
-
-        .mask{
-            // display: none;
-        }
 
         :nth-child(2){
             filter: $filtergreen;
@@ -91,9 +88,8 @@
     }  
 
     .wave-interior {
-        height: 50vw;
-        max-height: 600px;
         max-width: 950px;
+        padding: 5em 2em;
         text-align: center;
         }
 
@@ -131,22 +127,26 @@
         }
     }
     .wave-interior {
-        height: 25vw;
+        // height: 25vw;
+        padding: 5em 2em;
         min-height: 475px;
-        width: 50%;
-        min-width: 600px;
+        // min-width: 600px;
         max-width: 1200px;
         align-self: flex-start;
         z-index: $top;
         margin-left: 10%;
 
+        p {
+            align-self: flex-start;
+        }
+
         :nth-child(1) {
             margin-bottom: .5em;
+            width: 70%;
         }
 
         :nth-child(2) {
-            width: 90%;
-            align-self: flex-start;
+            width: 60%;
         }
     }
 }
@@ -174,9 +174,9 @@
     }  
 
     .wave-interior {
+        flex-wrap: wrap;
         justify-content: space-between;
-        height: 40vw;
-        max-height: 600px;
+        padding: 5em 2em;
         width: 80%;
         max-width: 1200px;
 
@@ -188,11 +188,13 @@
         div:first-child {
             flex: 1.25;
             text-align: left;
+            min-width: 380px;
         }
 
         div:last-child {
             flex: 1;
             text-align: center;
+            padding: 0 2em;
             
             p {
                 font-size: 18px;
@@ -200,8 +202,8 @@
         }
     
         svg {
-            width: 35%;
-            height: 35%;
+            width: 225px;
+            height: 225px;
         }
     }
 }
@@ -217,4 +219,24 @@
     padding: 1em 2.5em;
     margin: 1.5em 0;
     text-decoration: none;
+}
+
+
+@media only screen and (max-width: 836px) {
+    .wave-cta-end .wave-interior div:first-child {
+        text-align: center;
+        min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+
+    .wave-process .wave-interior {
+        margin: 0;
+        padding: 5em 2em;
+
+        :nth-child(1), :nth-child(2){
+            width: 100%;
+        }
+    }
 }
