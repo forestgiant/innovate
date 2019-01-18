@@ -51,7 +51,7 @@
 }
 
 #text-set-01 h6 {
-  font-family: 'Open Sans';
+  font-family: 'Source Sans Pro';
   font-weight: 400;
   letter-spacing: 8px;
   font-size: 16px;
@@ -61,7 +61,7 @@
 }
 
 .title-text h1 {
-  font-size: 5em;
+  font-size: 4em;
   margin: 0;
   color: #263963;
 }
@@ -88,8 +88,8 @@
   margin-bottom: 1.75rem;
 }
 
-.body-text h6 {
-  font-family: sans-serif;
+.body-text h6 { 
+  font-family: 'Source Sans Pro';
   font-weight: 400;
   letter-spacing: 8px;
   font-size: 16px;
@@ -99,8 +99,9 @@
 }
 
 .body-text span > span {
-  font-family: sans-serif;
+  font-family: 'Source Sans Pro';
   color: #808080;
+  font-weight: 200;
   font-size: 24px;
   line-height: 24px;
 }
@@ -149,6 +150,7 @@
   opacity: 0;
   transform: scale(1.17);
   transition: opacity .5s linear;
+  transition-delay: 1.5s;
 }
 
 #people,
@@ -158,6 +160,10 @@
   transform: scale(0.5);
   transition: linear .25s;
   top: 0px;
+}
+
+#rays {
+  transition-delay: 2.25s;
 }
 
 .scale-people-up {
@@ -208,8 +214,29 @@
   max-width: fit-content;
 }
 
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.rotate {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 35s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-delay: 1.25s;
+}
+
 .reverse-mask {
   display: none;
+}
+
+.fade-out-quick {
+  opacity: 0 !important;
+  transition-delay: .25s !important;
 }
 
 /*-------------------------  
@@ -223,11 +250,11 @@
 #fp6 { transition-delay: .7s; }
 #fp7 { transition-delay: .8s; }
 #fp8 { transition-delay: .9s; }
-#np1 { transition-delay: .2s; }
-#np2 { transition-delay: .3s; }
-#np3 { transition-delay: .4s; }
-#np4 { transition-delay: .5s; }
-#np5 { transition-delay: .6s; }
+#np1 { transition-delay: 1.2s; }
+#np2 { transition-delay: 1.3s; }
+#np3 { transition-delay: 1.4s; }
+#np4 { transition-delay: 1.5s; }
+#np5 { transition-delay: 1.6s; }
 
 /*-------------------------  
    Media queries 

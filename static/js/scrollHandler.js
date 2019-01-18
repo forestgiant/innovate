@@ -1,9 +1,8 @@
-window.onload = function(fn, wait) {
-  let controller = null,
-      topWave = null,
-      timeout = false,
-      debounceDelay = 250, 
-      waveOffsetBegin, imageHeight, textHeight, subtextHeight = 0;
+window.onload = function(fn) {
+  let controller = null, 
+      debounceDelay = 250,  
+      timeout, topWave = null,  
+      imageHeight, waveOffsetBegin, subtextHeight, textHeight = 0;
   
   const calculateContainerSizes = () => { 
     topWave = document.getElementById('validation-start'), 
@@ -18,14 +17,18 @@ window.onload = function(fn, wait) {
     // children can't be positioned by CSS. 
     document.getElementById('image-set-01').style.height = imageHeight + 'px'; 
     document.getElementById('text-container').style.height = textHeight + subtextHeight + 'px';
-  }
-
+  } 
+ 
   const updateValidationSection = () => {
     controller !== null && controller.destroy(true);
     calculateContainerSizes();
     configureScrollMagicScenes();
   }
 
+  //-----------------------------------------------------------
+  // We're debouncing the resize event handler so it only fires
+  // on completion.
+  //-----------------------------------------------------------
   window.addEventListener('resize', () => {
     this.clearTimeout(timeout);
     timeout = setTimeout(updateValidationSection, debounceDelay);
@@ -41,7 +44,7 @@ window.onload = function(fn, wait) {
       duration: 2500,
       offset: waveOffsetBegin,
     })
-    .setPin('#main')
+    .setPin('#main') 
     .addTo(controller); 
     
     //---------------------------------------------------------
@@ -82,7 +85,7 @@ window.onload = function(fn, wait) {
     .addTo(controller);
 
     new ScrollMagic.Scene({
-      duration: 800,
+      duration: 0,
       offset: waveOffsetBegin + 800,
     })
     .setClassToggle('#annotations', 'visible')
@@ -105,6 +108,20 @@ window.onload = function(fn, wait) {
       duration: 0,
       offset: waveOffsetBegin + 1600,
     })
+    .setClassToggle('#annotations', 'fade-out-quick')
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+      duration: 0,
+      offset: waveOffsetBegin + 1600,
+    })
+    .setClassToggle('#globe', 'rotate')
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+      duration: 0,
+      offset: waveOffsetBegin + 1600,
+    })
     .setClassToggle('#text-set-04', 'visible')
     .addTo(controller);
     
@@ -112,7 +129,7 @@ window.onload = function(fn, wait) {
       duration: 0,
       offset: waveOffsetBegin + 1600,
     })
-    .setClassToggle('#rays', 'scale-rays-up')
+    .setClassToggle('#rays', 'scale-rays-up') 
     .addTo(controller); 
   }
  
