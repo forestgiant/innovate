@@ -19,7 +19,7 @@ h3 {
     font-size: 26px;
 }
 
-h4 {
+h4, .thicc {
     font-family: $gastro;
     font-size: 56px;
     color: $fgtomato;
@@ -40,10 +40,7 @@ p {
 }
 
 .thicc {
-    font-family: $gastro;
     color: $fgnavy;
-    font-size: 34px;
-    line-height: 1.15;
 }
 
 strong {
@@ -90,6 +87,17 @@ strong {
     }
 }
 
+@media only screen and (max-width:815px) {
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .thicc {
+        font-size: 7vw;
+    }
+}
+
 @media only screen and (max-width: 415px) {
 
     h1 {
@@ -100,7 +108,7 @@ strong {
         font-size: 35px;
     }
 
-    h4 {
+    h4, .thicc {
         font-size: 40px;
     }
 

@@ -128,25 +128,26 @@
     }
     .wave-interior {
         // height: 25vw;
-        padding: 5em 2em;
-        min-height: 475px;
+        padding: 10em 5em;
+        // min-height: 475px;
         // min-width: 600px;
-        max-width: 1200px;
+        // max-width: 1200px;
         align-self: flex-start;
         z-index: $top;
-        margin-left: 10%;
+        // margin-left: 10%;
 
         p {
-            align-self: flex-start;
+        // margin-left: 150px;
+        align-self: flex-start;
         }
 
         :nth-child(1) {
             margin-bottom: .5em;
-            width: 70%;
+            max-width: 1200px;
         }
 
         :nth-child(2) {
-            width: 60%;
+            max-width: 800px;
         }
     }
 }
@@ -226,6 +227,18 @@
     .wave-cta-end .wave-interior div:first-child {
         text-align: center;
         min-width: 100%;
+    }
+
+    .wave-process .wave-interior {
+        :nth-child(1), :nth-child(2) {
+            max-width:100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .wave-process .wave-interior {
+        padding: 8em 4em;
     }
 }
 
