@@ -47,7 +47,7 @@
     }
 
     .wave-interior {
-        height: 30vw;
+        height: 35vw;
         min-height: 250px;
     }
 
@@ -220,6 +220,11 @@
     padding: 1em 2.5em;
     margin: 1.5em 0;
     text-decoration: none;
+    transition: background-color 0.25s ease;
+}
+
+.cta-button:hover {
+    background: $fggreen;
 }
 
 
