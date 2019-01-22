@@ -68,13 +68,22 @@
 
 .wave-container {
     background-color: $fgnavy;
+    position: relative;
+}
+
+.wave-overlay {
+    position: absolute;
+    background-image: url('/img/noiseBG.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    filter: $filterblue;
+    width: 100%;
+    height: 100%;
+    z-index: $bottom;
 }
 
 .wave-cta-mid {
-    background-image: url('/img/noiseBGsmall.png');
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-position: right;
 
     .wave-top {
         :nth-child(1){
@@ -98,6 +107,7 @@
         max-width: 950px;
         padding: 7em 2em 5em 2em;
         text-align: center;
+        z-index: $top;
         }
 
     .wave-bottom {
@@ -111,16 +121,6 @@
 .wave-process {
     position: relative;
     background: center / cover no-repeat url("/img/photos/process.jpg");
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        // background: linear-gradient(270deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.8) 100%);
-    }
 
     .wave-top {
         :nth-child(2){
@@ -136,7 +136,8 @@
     }
     .wave-interior {
         padding: 10em 5em;
-        align-self: flex-start;
+        align-self: center;
+        text-align: center;
         z-index: $top;
 
         :nth-child(1) {
