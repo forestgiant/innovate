@@ -89,7 +89,7 @@
 
     .wave-interior {
         max-width: 950px;
-        padding: 5em 2em;
+        padding: 7em 2em 5em 2em;
         text-align: center;
         }
 
@@ -117,11 +117,12 @@
 
     .wave-top {
         :nth-child(2){
+            filter: $filterpink;
             z-index: $top;
             @include fliph;
         }
         :nth-child(3){
-            filter: $filtergreen;
+            filter: $filterblue;
             z-index: $bottom;
             @include flipv;
         }
@@ -248,5 +249,9 @@
         :nth-child(1), :nth-child(2){
             width: 100%;
         }
+    }
+
+    .cta-button {
+        font-size: 20px;
     }
 }
