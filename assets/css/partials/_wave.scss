@@ -112,7 +112,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(270deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.8) 100%);
+        // background: linear-gradient(270deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.8) 100%);
     }
 
     .wave-top {
@@ -127,19 +127,9 @@
         }
     }
     .wave-interior {
-        // height: 25vw;
         padding: 10em 5em;
-        // min-height: 475px;
-        // min-width: 600px;
-        // max-width: 1200px;
         align-self: flex-start;
         z-index: $top;
-        // margin-left: 10%;
-
-        p {
-        // margin-left: 150px;
-        align-self: flex-start;
-        }
 
         :nth-child(1) {
             margin-bottom: .5em;
@@ -147,7 +137,9 @@
         }
 
         :nth-child(2) {
-            max-width: 800px;
+            color: white;
+            align-self: flex-start;
+            max-width: 750px;
         }
     }
 }
