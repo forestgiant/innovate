@@ -31,17 +31,89 @@
 .results-img {
     display: flex;
     justify-content: center;
+    position: relative;
+    width: 100%;
+}
 
-    svg {
-        width: 80%;
-        height: 80%;
-        margin: 1em 0;
-    }
+.blob {
+    width: 90%;
+    height: 90%;
+    margin: 1em 0;
+    z-index: $top;
+}
+
+.circle {
+    position: absolute;
+    z-index: $bottom;
 }
 
 .quote {
     padding: 5em 0;
     text-align: center;
+}
+
+#blob1 {
+
+    .circle {
+        height: 105%;
+    }
+
+    :nth-child(2){
+        filter: $filterpink;
+        @include fliph;
+        top: -30px;
+        left: -25px;
+        width: 105%;
+    }
+
+    :nth-child(3){
+        filter: $filteryellow;
+        @include flipv;
+        width: 100%;
+        left: 10px;
+    }
+}
+
+#blob2 {
+
+    :nth-child(2){
+        filter: $filtergreen;
+        top: -15px;
+        left: -55px;
+        width: 95%;
+        height: 95;
+    }
+
+    :nth-child(3){
+        filter: $filterblue;
+        @include flipv;
+        top: -20px;
+        left: 50px;
+        width: 90%;
+        height: 90%;
+    } 
+}
+
+#blob3 {
+
+    .circle {
+        width: 90%;
+        height: 90%;
+    }
+
+    :nth-child(2){
+        filter: $filteryellow;
+        @include fliph;
+        top: 20px;
+        left: -5px;
+    }
+
+    :nth-child(3){
+        filter: $filtergreen;
+        @include flipv;
+        top: 50px;
+        left: 45px;
+    }
 }
 
 
