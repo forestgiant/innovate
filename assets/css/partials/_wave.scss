@@ -66,8 +66,15 @@
     }
 }
 
+.wave-container {
+    background-color: $fgnavy;
+}
+
 .wave-cta-mid {
-    background: $fgnavy;
+    background-image: url('/img/noiseBGsmall.png');
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-position: right;
 
     .wave-top {
         :nth-child(1){
