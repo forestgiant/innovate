@@ -1,9 +1,1 @@
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-{"Target":"css/main.min.7865e5a7868d4f89e9cd01be97a5ff8f45324225c255ec582af3b69c2ea99ce4.css","MediaType":"text/css","Data":{"Integrity":"sha256-eGXlp4aNT4npzQG+l6X/j0UyQiXCVexYKvO2nC6pnOQ="}}
-=======
-{"Target":"css/main.min.0ae6f156d89899edaf35c5aa7638d63adb1d95b0382d57e44cfbe05810130f24.css","MediaType":"text/css","Data":{"Integrity":"sha256-CubxVtiYme2vNcWqdjjWOtsdlbA4LVfkTPvgWBATDyQ="}}
->>>>>>> Switched to GSAP library for tweening animations instead of toggling.
-=======
-{"Target":"css/main.min.a3152ecee63142a7dd4778e802833200b53bbc430f8fbe74794f2fc566d630cd.css","MediaType":"text/css","Data":{"Integrity":"sha256-oxUuzuYxQqfdR3joAoMyALU7vEMPj750eU8vxWbWMM0="}}
->>>>>>> Stashed changes
+{"Target":"css/main.min.68c3dec0058c379a6665957708bf54ae0f4c21f58d71f5457d49a2b4b968a2cf.css","MediaType":"text/css","Data":{"Integrity":"sha256-aMPewAWMN5pmZZV3CL9Urg9MIfWNcfVFfUmitLloos8="}}
