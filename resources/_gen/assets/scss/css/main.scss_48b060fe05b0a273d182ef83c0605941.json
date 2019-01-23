@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"Target":"css/main.min.7865e5a7868d4f89e9cd01be97a5ff8f45324225c255ec582af3b69c2ea99ce4.css","MediaType":"text/css","Data":{"Integrity":"sha256-eGXlp4aNT4npzQG+l6X/j0UyQiXCVexYKvO2nC6pnOQ="}}
+=======
+{"Target":"css/main.min.0ae6f156d89899edaf35c5aa7638d63adb1d95b0382d57e44cfbe05810130f24.css","MediaType":"text/css","Data":{"Integrity":"sha256-CubxVtiYme2vNcWqdjjWOtsdlbA4LVfkTPvgWBATDyQ="}}
+>>>>>>> Switched to GSAP library for tweening animations instead of toggling.
