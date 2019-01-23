@@ -14,7 +14,7 @@ h2 {
 }
 
 h3 {
-    font-family: $source;
+    font-family: 'Source Sans Pro';
     font-weight: 700;
     font-size: 26px;
 }
@@ -27,7 +27,7 @@ h4, .thicc {
 }
 
 p {
-    font-family: $source;
+    font-family: 'Source Sans Pro';
     font-weight: 200;
     font-size: 20px;
     color: $fgblack;
@@ -51,7 +51,7 @@ strong {
 .quote {
 
     blockquote {
-        font-family: $source;
+        font-family: 'Source Sans Pro';
         color: $fgblack;
         font-size: 40px;
         font-style: italic;
@@ -83,7 +83,7 @@ strong {
 
     p {
         color: $fgnavy;
-        font-family: $source;
+        font-family: 'Source Sans Pro';
         font-size: 20px;
         text-transform: uppercase;
     }

@@ -73,11 +73,11 @@
 
 .wave-overlay {
     position: absolute;
-    background-image: url('/img/noiseBG.png');
+    background-image: url('/img/noiseBG.jpg');
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
-    filter: $filterblue;
+    // filter: $filterblue;
     width: 100%;
     height: 100%;
     z-index: $bottom;
