@@ -69,11 +69,12 @@ body {
   color: #263963;
 }
 
-.body-text {
-  /*position: absolute;
-  top: 0;
-  left: 0;*/
+.body-text { 
   padding-top: 2rem; 
+}
+
+.body-text-extended {
+  transition: all .5s linear;
 }
 
 .body-text h3 {
@@ -140,7 +141,7 @@ body {
 
 .image-wrapper img.globe-shadow {
   height: initial;
-  width: 75%;
+  width: 100%;
   max-width: 500px;
   margin-top: 75%;
   opacity: 1; 
@@ -151,6 +152,11 @@ body {
   transform: scale(1.17); 
 }
 
+.annotations-extended {
+  transition: opacity .5s linear;
+  transition-delay: 1.5s;
+}
+
 #people,
 #rays {
   -webkit-transform: scale(0.5);
@@ -159,14 +165,17 @@ body {
   top: 0px;
 }
 
-#rays { 
+.people-extended,
+.rays-extended {
+  transition: all linear .25s; 
 }
-
+ 
 .scale-people-up {
   -webkit-transform: scale(1.15) !important;
   -moz-transform: scale(1.15) !important;
   transform: scale(1.15) !important;
-  top: -24% !important; 
+  top: -24% !important;
+  transition-delay: .6s; 
 }
 
 .scale-rays-up {
@@ -175,7 +184,8 @@ body {
   -o-transform: scale(1.35) !important;
   transform: scale(1.35) !important;
   transition: all 1s !important;
-  top: 2px !important; 
+  top: 2px !important;
+  transition-delay: .6s;
 }
 
 .scale-pieces-up {
@@ -186,7 +196,13 @@ body {
 }
 
 .first-pieces,
-.next-pieces { 
+.next-pieces {
+  transition: all ease-in .45s; 
+}
+
+.pull-body-text-up {
+  margin-top: 0 !important;
+  opacity: 1;
 }
 
 /*------------------------- 
@@ -199,7 +215,7 @@ body {
 
 .invisible {
   opacity: 0;
-}
+} 
 
 .fixed {
   position: fixed !important; 
@@ -232,6 +248,11 @@ body {
   display: none;
 } 
 
+.fade-out-quick {
+  opacity: 0 !important;
+  transition-delay: .25s !important;
+}
+ 
 /*-------------------------  
    Media queries 
   -------------------------*/
@@ -303,7 +324,6 @@ body {
     height: 50%;
   }
  
-
   .reverse-mask {
     position: absolute;
     display: block;
