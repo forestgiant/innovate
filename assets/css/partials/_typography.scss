@@ -35,8 +35,7 @@ p {
 }
 
 .biggie {
-    font-size: 24px;
-    padding: .25em 0;
+    font-size: 26px;
 }
 
 .thicc {
@@ -86,6 +85,13 @@ strong {
         font-family: 'Source Sans Pro';
         font-size: 20px;
         text-transform: uppercase;
+    }
+}
+
+@media only screen and (max-width:1200px) {
+
+    .biggie {
+        font-size: 24px;
     }
 }
 
