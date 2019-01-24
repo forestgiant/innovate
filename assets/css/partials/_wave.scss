@@ -197,15 +197,17 @@
             flex: 1;
             text-align: center;
             padding: 0 2em;
+            align-self: flex-start;
             
             p {
                 font-size: 18px;
             }
         }
     
-        svg {
+        img {
             width: 225px;
             height: 225px;
+            margin-bottom: 1em;
         }
     }
 }
