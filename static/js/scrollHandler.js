@@ -3,27 +3,25 @@ window.onload = function(fn) {
       debounceDelay = 250,  
       timeout, topWave = null,  
       imageHeight, waveOffsetBegin, subtextHeight, textHeight = 0, 
-      ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset, offsetScale = 0,
-      scrollTimeout = 1000, scene = 0, lastScroll = 0,
-      canAccessScroll = true;
-  
-  setDefaults = () => {
+      ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset, offsetScale = 0;
+    
+  const setDefaults = () => {
     transitionDuration = 1200; 
     offsetScale = 1.3;
   }
   
   const calculateContainerSizes = () => {  
-    topWave = document.getElementById('validation-start'), 
-    waveOffsetBegin = topWave.offsetTop + topWave.offsetHeight, 
+    topWave = document.getElementById('validation-start').getBoundingClientRect(), 
+    waveOffsetBegin = topWave.bottom, 
     imageHeight = document.getElementById('globe').offsetHeight,
     textHeight = document.getElementById('text-set-01').offsetHeight;
     subtextHeight = document.getElementById('text-set-02').offsetHeight;
 
     ai1Offset = waveOffsetBegin,
-    ao1Offset = ai1Offset + transitionDuration * (offsetScale * 1),
-    ai2Offset = ai1Offset + transitionDuration * (offsetScale * 2),
-    ao2Offset = ai1Offset + transitionDuration * (offsetScale * 3),
-    ai3Offset = ai1Offset + transitionDuration * (offsetScale * 4);
+    ao1Offset = ai1Offset + (transitionDuration * (offsetScale * 1)),
+    ai2Offset = ai1Offset + (transitionDuration * (offsetScale * 2)),
+    ao2Offset = ai1Offset + (transitionDuration * (offsetScale * 3)),
+    ai3Offset = ai1Offset + (transitionDuration * (offsetScale * 4));
 
     // Need to set the height of these containers in order to vertically
     // center them. They include absolutely-positioned children, so
@@ -41,7 +39,8 @@ window.onload = function(fn) {
 
   //-----------------------------------------------------------
   // We're debouncing the resize event handler so it only fires
-  // on completion.
+  // on completion. The event handler itself is the function
+  // above.
   //-----------------------------------------------------------
   window.addEventListener('resize', () => {
     this.clearTimeout(timeout);
@@ -53,18 +52,18 @@ window.onload = function(fn) {
     //---------------------------------------------------------
     // Page Handling
     //--------------------------------------------------------- 
-    let mainScene = new ScrollMagic.Scene({
+
+    new ScrollMagic.Scene({
       duration: ao2Offset,
       offset: ai1Offset,  
     })
     .setPin('#main', {
       pushFollowers: true
-    })
-    .setClassToggle('#main', 'fixed')  
+    })  
     .addTo(controller);
  
     //---------------------------------------------------------
-    // text-set-02
+    // Scene 1: Transition in
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
       duration: transitionDuration,
@@ -87,7 +86,7 @@ window.onload = function(fn) {
     .addTo(controller);
 
         //-----------------------------------------------------
-        // Transition out
+        // Scene 1: Transition out
         //-----------------------------------------------------
         let tweenFirstPiecesOut = TweenMax.staggerFromTo(".first-pieces", 2,
           { opacity: 1, 
@@ -124,7 +123,7 @@ window.onload = function(fn) {
         .addTo(controller);
  
     //---------------------------------------------------------
-    // text-set-03
+    // Scene 2: Transition in
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
       offset: ai2Offset,
@@ -146,7 +145,7 @@ window.onload = function(fn) {
     .addTo(controller);
 
         //-----------------------------------------------------
-        // Transition out
+        // Scene 2: Transition out
         //-----------------------------------------------------
         let tweenLastPiecesOut = TweenMax.staggerFromTo(".next-pieces", 2,
           { opacity: 1, scale: 1.0 }, { opacity: 0, scale: 1.5, ease: Linear.easeNone }, 1);
@@ -178,7 +177,7 @@ window.onload = function(fn) {
         .addTo(controller);
 
     //---------------------------------------------------------
-    // text-set-04
+    // Scene 3: Transition in (no transition out)
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
       offset: ai3Offset,
