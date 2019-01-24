@@ -19,11 +19,13 @@ window.onload = function(fn) {
   }
   
   const calculateSizesAndOffsets = () => {   
-    topWave = document.getElementById('validation-start').getBoundingClientRect(), 
-    waveOffsetBegin = topWave.bottom, 
+    topWave = document.getElementById('validation-start').getBoundingClientRect(),
+    bodyRectTop = document.body.getBoundingClientRect().top,
+    waveOffsetBegin = topWave.bottom - bodyRectTop, 
     imageHeight = document.getElementById('globe').offsetHeight,
     textHeight = document.getElementById('text-set-01').offsetHeight;
     subtextHeight = document.getElementById('text-set-02').offsetHeight;
+    console.log(waveOffsetBegin);
 
     ai1Offset = waveOffsetBegin,
     ao1Offset = ai1Offset + (transitionDuration * (offsetScale * 1) * chromeScale),
