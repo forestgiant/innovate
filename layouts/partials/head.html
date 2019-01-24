@@ -12,7 +12,7 @@
     <!-- End Google Tag Manager -->
 
     <title>{{ if .IsPage }}{{ .Params.meta_title }}{{ else if .IsNode }}{{ .Title }}{{ end }}</title>
-    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
+    <meta name="description" content="Forest Giant generates and validates innovative ideas that transform enterprise businesses. Are you ready to craft the next big thing for your company?" />
     {{ if eq .Params.noindex "true" }}<meta name="robots" content="noindex, nofollow">{{ end }}
     {{ if eq .Params.relcanon "true"}}<link href="{{ .Params.relcanon_url }}" rel="canonical" />{{ end }}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -31,9 +31,8 @@
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ if .IsPage }}{{ .Params.meta_title }}{{ else if .IsNode }}{{ .Title }}{{ end }}" />
-    <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
-    <meta property="og:image" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:description" content="Forest Giant generates and validates innovative ideas that transform enterprise businesses." />
+    <meta property="og:image" content="/img/social.jpg" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@forestgiant">
     <!-- End Open Graph/Twitter -->
