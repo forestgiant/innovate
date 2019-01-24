@@ -16,6 +16,17 @@ Variables are housed in the main `input.scss` file. They are used to control uni
 ### More on Sass
 For more information on Sass, go to [sass-lang.com/guide](https://sass-lang.com/guide).
 
+### Maintenance
+An experimental feature in Google Chrome, threaded scrolling, causes quite a lot of jitter on a pinned section that uses tweening by GSAP. (Disabling this feature, as explained [in an issue raised on GitHub](https://github.com/janpaepke/ScrollMagic/issues/866), fixes the problem, but this can't be done programatically.)
+
+We're currently doing a browser check on page load, then serving one of two ScrollMagic scene initialization functions:
+
+1. Function #1 attaches trigger-based scenes to the controller, which add classes to elements at certain scrolling positions (`offsets`) on the page. Once these animations trigger, they continue triggering, regardless of velocity or momentum in scrolling. This is currently attached to Google Chrome.
+
+2. Function #2 attaches tween-based scenes to the controller. These are closer to the ideal behavior of the scenes "scrubbing" on page scroll, rather than firing discrete events.
+
+We should pay attention to the issue linked to above on GitHub, and modify the code accordingly if it's resolved, as we're happier with the tween-based animations than we are the trigger-based.
+
 
 
 
