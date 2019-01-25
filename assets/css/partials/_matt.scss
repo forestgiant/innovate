@@ -4,18 +4,25 @@
 body {
   overflow-x: hidden;
 } 
-
+ 
 #validation-start {
   margin-bottom: 0;
 }
 
 .validation-container {
   display: flex;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   height: 100vh;  
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 3rem;
+  transition: top .35s linear;
+}
+
+.animate-validation-upward {
+  top: -1000px;
 }
 
 .column-1 {

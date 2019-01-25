@@ -1,50 +1,52 @@
 window.onload = function(fn) {
-  let controller = null, 
-      debounceDelay = 250,  
-      pieceTransitionDelay = .2,
-      timeout, topWave = null,  
-      imageHeight, waveOffsetBegin, subtextHeight, textHeight = 0, 
-      ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset, offsetScale = 0,
+  let controller, timeout = null,  
+      imageHeight, pieceTransitionDelay, resizeDebounceDelay, subtextHeight, textHeight = 0, 
+      ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset = 0,
       //-------------------------------------------------------------------------------------------------------------
       // The following approach tests for Google Chrome, and was advised in lieu of 
-      // testing the User agent string in 
+      // testing the User agent string in an up-to-date (v1-v71) response.
       // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769
       //-------------------------------------------------------------------------------------------------------------
-      isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime),
-      chromeScale = isChrome === true ? 0.8 : 1;
+      isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
   const setDefaults = () => {
-    transitionDuration = 1200 * chromeScale; 
-    offsetScale = 1.3; 
+    chromeScale = isChrome === true ? 0.9 : 1;
+    resizeDebounceDelay = 250;
+    pieceTransitionDelay = 0.2;
+    transitionDuration = 1560 * chromeScale;  
   }
   
   const calculateSizesAndOffsets = () => {   
-    topWave = document.getElementById('validation-start').getBoundingClientRect(),
-    bodyRectTop = document.body.getBoundingClientRect().top,
-    waveOffsetBegin = topWave.bottom - bodyRectTop, 
+    topWaveBottom = document.getElementById('validation-start').getBoundingClientRect().bottom,
+    bodyRectTop = document.body.getBoundingClientRect().top, 
     imageHeight = document.getElementById('globe').offsetHeight,
     textHeight = document.getElementById('text-set-01').offsetHeight;
-    subtextHeight = document.getElementById('text-set-02').offsetHeight;
-    console.log(waveOffsetBegin);
+    subtextHeight = document.getElementById('text-set-02').offsetHeight; 
 
-    ai1Offset = waveOffsetBegin,
-    ao1Offset = ai1Offset + (transitionDuration * (offsetScale * 1) * chromeScale),
-    ai2Offset = ai1Offset + (transitionDuration * (offsetScale * 2) * chromeScale),
-    ao2Offset = ai1Offset + (transitionDuration * (offsetScale * 3) * chromeScale),
-    ai3Offset = ai1Offset + (transitionDuration * (offsetScale * 4) * chromeScale);
+    ai1Offset = topWaveBottom - bodyRectTop,
+    ao1Offset = ai1Offset + (transitionDuration * 1 * chromeScale),
+    ai2Offset = ai1Offset + (transitionDuration * 2 * chromeScale),
+    ao2Offset = ai1Offset + (transitionDuration * 3 * chromeScale),
+    ai3Offset = ai1Offset + (transitionDuration * 4 * chromeScale);
     
     //------------------------------------------------------------------
     // Need to set the height of these containers in order to vertically
     // center them. They include absolutely-positioned children, so
     // the containers are unaware of their heights, which means the
     // children can't be positioned by CSS. 
-    //------------------------------------------------------------------
+    //------------------------------------------------------------------ 
+    let offset = isChrome === true ? (ai3Offset * 0.76) : (ai3Offset * 0.95);
+    
+    document.getElementById('validation-end').style.margin = offset + 'px 0 0 0';
     document.getElementById('image-set-01').style.height = imageHeight + 'px'; 
     document.getElementById('text-container').style.height = textHeight + subtextHeight + 'px';
   }
 
   //---------------------------------------------------------------------
   // TODO: Remove when Chrome threaded scrolling issue has been handled.
+  // Currently in place because there are CSS attributes we want to add
+  // (like transition delay) to some elements that would impact the
+  // GSAP tweening in ways we don't want.
   //---------------------------------------------------------------------
   const configureStylesForChrome = () => { 
     document.getElementById('annotations').classList.add('annotations-extended');
@@ -60,7 +62,7 @@ window.onload = function(fn) {
   }
 
   const updateValidationSection = () => { 
-    controller !== null && controller.destroy(true);
+    typeof controller !== 'undefined' && controller !== null && controller.destroy(true);
     calculateSizesAndOffsets();
     isChrome === true ? configureSMScenesWithoutGSAP() : configureSMScenesWithGSAP();
   }
@@ -72,24 +74,11 @@ window.onload = function(fn) {
   //-----------------------------------------------------------
   window.addEventListener('resize', () => {
     this.clearTimeout(timeout);
-    timeout = setTimeout(updateValidationSection, debounceDelay);
-  });
-
+    timeout = setTimeout(updateValidationSection, resizeDebounceDelay);
+  }); 
+ 
   const configureSMScenesWithGSAP = () => { 
     controller = new ScrollMagic.Controller(); 
-    //---------------------------------------------------------
-    // Page Handling
-    //--------------------------------------------------------- 
-
-    new ScrollMagic.Scene({
-      duration: ao2Offset,
-      offset: ai1Offset,  
-    })
-    .setPin('#main', {
-      pushFollowers: true
-    })  
-    .addTo(controller);
- 
     //---------------------------------------------------------
     // Scene 1: Transition in
     //---------------------------------------------------------
@@ -232,6 +221,15 @@ window.onload = function(fn) {
       top: "2px",
     }) 
     .addTo(controller); 
+
+    new ScrollMagic.Scene({
+      duration: 1200,
+      offset: ai3Offset + 2100,
+    })
+    .setTween('.validation-container', {
+      y: '-1000px'
+    }) 
+    .addTo(controller);
   }
 
   const configureSMScenesWithoutGSAP = () => {
@@ -239,12 +237,12 @@ window.onload = function(fn) {
     //---------------------------------------------------------
     // Page Handling
     //--------------------------------------------------------- 
-    new ScrollMagic.Scene({
+    /*new ScrollMagic.Scene({
       duration: ao2Offset,
       offset: ai1Offset,
     })
     .setPin('#main') 
-    .addTo(controller); 
+    .addTo(controller); */
     
     //---------------------------------------------------------
     // Scene 1: Transition in
@@ -358,6 +356,13 @@ window.onload = function(fn) {
     })
     .setClassToggle('#rays', 'scale-rays-up') 
     .addTo(controller); 
+
+    new ScrollMagic.Scene({
+      duration: 0,
+      offset: ai3Offset + 1550,
+    })
+    .setClassToggle('.validation-container', 'animate-validation-upward')
+    .addTo(controller);
   }
 
   isChrome === true && configureStylesForChrome();

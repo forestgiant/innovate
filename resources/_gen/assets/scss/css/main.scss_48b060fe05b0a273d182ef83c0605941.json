@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"Target":"css/main.min.031c674dff3d8c0d6db18dda5283adc6289257912f8b85183ee3a161dce77aa8.css","MediaType":"text/css","Data":{"Integrity":"sha256-AxxnTf89jA1tsY3aUoOtxiiSV5Evi4UYPuOhYdzneqg="}}
+=======
+{"Target":"css/main.min.da164ac8381fa22c6d782e63ec4fae53867bcd47af5f18d8b3d24429c8550e02.css","MediaType":"text/css","Data":{"Integrity":"sha256-2hZKyDgfoixteC5j7E+uU4Z7zUevXxjYs9JEKchVDgI="}}
+>>>>>>> Stopped using pin on #main and started using position: sticky on #validation-container.
