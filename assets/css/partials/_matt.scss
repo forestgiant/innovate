@@ -9,6 +9,10 @@ body {
   margin-bottom: 0;
 }
 
+#validation-container-wrapper {
+  max-height: 9000px;
+}
+
 .validation-container {
   display: flex;
   position: -webkit-sticky;
@@ -18,11 +22,11 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 3rem;
-  transition: top .35s linear;
 }
 
 .animate-validation-upward {
-  top: -1000px;
+  transition: top .35s linear;
+  top: -100;
 }
 
 .column-1 {

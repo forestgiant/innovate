@@ -10,7 +10,7 @@ window.onload = function(fn) {
       isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
   const setDefaults = () => {
-    chromeScale = isChrome === true ? 0.9 : 1;
+    chromeScale = isChrome === true ? 0.85 : 1;
     resizeDebounceDelay = 250;
     pieceTransitionDelay = 0.2;
     transitionDuration = 1560 * chromeScale;  
@@ -33,11 +33,11 @@ window.onload = function(fn) {
     // Need to set the height of these containers in order to vertically
     // center them. They include absolutely-positioned children, so
     // the containers are unaware of their heights, which means the
-    // children can't be positioned by CSS. 
-    //------------------------------------------------------------------ 
-    let offset = isChrome === true ? (ai3Offset * 0.76) : (ai3Offset * 0.95);
+    // children can't be positioned by CSS. 5
+    //------------------------------------------------------------------  
     
-    document.getElementById('validation-end').style.margin = offset + 'px 0 0 0';
+    document.getElementById('validation-container-wrapper').style.maxHeight = (ai3Offset * 0.85) + 'px';
+    document.getElementById('validation-end').style.margin = (ai3Offset * 0.75) + 'px 0 0 0';
     document.getElementById('image-set-01').style.height = imageHeight + 'px'; 
     document.getElementById('text-container').style.height = textHeight + subtextHeight + 'px';
   }
@@ -83,7 +83,7 @@ window.onload = function(fn) {
     // Scene 1: Transition in
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
-      duration: transitionDuration,
+      duration: 0,
       offset: ai1Offset,
     }) 
     .setTween('#text-set-02', { 
@@ -144,7 +144,7 @@ window.onload = function(fn) {
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
       offset: ai2Offset,
-      duration: transitionDuration,
+      duration: 0,
     }) 
     .setTween('#text-set-03', {  
       marginTop: '0px',
@@ -213,7 +213,7 @@ window.onload = function(fn) {
     .addTo(controller);
 
     new ScrollMagic.Scene({
-      duration: 2000,
+      duration: 0,
       offset: ai3Offset,
     })
     .setTween('#rays', {
@@ -222,14 +222,14 @@ window.onload = function(fn) {
     }) 
     .addTo(controller); 
 
-    new ScrollMagic.Scene({
-      duration: 1200,
-      offset: ai3Offset + 2100,
-    })
-    .setTween('.validation-container', {
-      y: '-1000px'
-    }) 
-    .addTo(controller);
+    // new ScrollMagic.Scene({
+    //   duration: 0,
+    //   offset: ai3Offset + 2200,
+    // })
+    // .setTween('.validation-container', {
+    //   marginTop: '-100%',
+    // }) 
+    // .addTo(controller);
   }
 
   const configureSMScenesWithoutGSAP = () => {
