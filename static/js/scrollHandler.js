@@ -1,4 +1,4 @@
-window.onload = function(fn) {
+window.onload = function(fn) { 
   let controller, timeout = null,  
       imageHeight, pieceTransitionDelay, resizeDebounceDelay, subtextHeight, textHeight = 0, 
       ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset = 0,
@@ -7,8 +7,9 @@ window.onload = function(fn) {
       // testing the User agent string in an up-to-date (v1-v71) response.
       // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769
       //-------------------------------------------------------------------------------------------------------------
-      isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-
+      isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime),
+      isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+      
   const setDefaults = () => {
     chromeScale = isChrome === true ? 0.85 : 1;
     resizeDebounceDelay = 250;
@@ -36,10 +37,20 @@ window.onload = function(fn) {
     // children can't be positioned by CSS. 5
     //------------------------------------------------------------------  
     
-    document.getElementById('validation-container-wrapper').style.maxHeight = (ai3Offset * 0.85) + 'px';
-    document.getElementById('validation-end').style.margin = (ai3Offset * 0.75) + 'px 0 0 0';
+    if (isSafari !== true) { 
+      document.getElementById('validation-container-wrapper').style.maxHeight = (ai3Offset * 0.85) + 'px';
+      document.getElementById('validation-end').style.margin = (ai3Offset * 0.8) + 'px 0 0 0';
+    }
+
     document.getElementById('image-set-01').style.height = imageHeight + 'px'; 
     document.getElementById('text-container').style.height = textHeight + subtextHeight + 'px';
+  }
+
+  const configureStylesForSafari = () => {   
+   
+
+    document.getElementsByClassName('validation-container')[0].style.position = "relative";
+    document.getElementById('validation-container-wrapper').style.maxHeight = "initial";
   }
 
   //---------------------------------------------------------------------
@@ -79,6 +90,15 @@ window.onload = function(fn) {
  
   const configureSMScenesWithGSAP = () => { 
     controller = new ScrollMagic.Controller(); 
+
+    if (isSafari === true) {
+      new ScrollMagic.Scene({
+        duration: ao2Offset + 2000,
+        offset: ai1Offset,
+      })
+      .setPin('#main') 
+      .addTo(controller);
+    }
     //---------------------------------------------------------
     // Scene 1: Transition in
     //---------------------------------------------------------
@@ -198,6 +218,7 @@ window.onload = function(fn) {
     //---------------------------------------------------------
     new ScrollMagic.Scene({ 
       offset: ai3Offset,
+      duration: 800,
     }) 
     .setTween('#text-set-04', { 
       marginTop: '0px',
@@ -232,18 +253,10 @@ window.onload = function(fn) {
     // .addTo(controller);
   }
 
+  
+
   const configureSMScenesWithoutGSAP = () => {
     controller = new ScrollMagic.Controller(); 
-    //---------------------------------------------------------
-    // Page Handling
-    //--------------------------------------------------------- 
-    /*new ScrollMagic.Scene({
-      duration: ao2Offset,
-      offset: ai1Offset,
-    })
-    .setPin('#main') 
-    .addTo(controller); */
-    
     //---------------------------------------------------------
     // Scene 1: Transition in
     //---------------------------------------------------------
@@ -355,17 +368,11 @@ window.onload = function(fn) {
       offset: ai3Offset,
     })
     .setClassToggle('#rays', 'scale-rays-up') 
-    .addTo(controller); 
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset + 1550,
-    })
-    .setClassToggle('.validation-container', 'animate-validation-upward')
-    .addTo(controller);
+    .addTo(controller);  
   }
 
+  setDefaults(); 
   isChrome === true && configureStylesForChrome();
-  setDefaults();
+  isSafari === true && configureStylesForSafari();
   updateValidationSection();
 }
