@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .product-title {
     font-family: $gastro;
     color: $fgnavy;
     padding: .25em 0;
@@ -41,6 +41,20 @@ p {
 .thicc {
     color: $fgorange;
     font-size: 56px;
+}
+
+.product-title {
+    font-size: 70px;
+    line-height: 1.2;
+}
+
+.prodp {
+    font-size: 40px;
+    font-family: $gastro;
+    margin: .5em 0 .25em 0;
+    color: $fgnavy;
+    max-width: 560px;
+    line-height: 1.2;
 }
 
 strong {
@@ -97,7 +111,7 @@ strong {
 
 @media only screen and (max-width:815px) {
 
-    h1 {
+    h1, .product-title {
         font-size: 58px;
     }
 
@@ -109,14 +123,14 @@ strong {
         font-size: 36px;
     }
 
-    .thicc {
+    .thicc, .prodp {
         font-size: 7vw;
     }
 }
 
 @media only screen and (max-width: 415px) {
 
-    h1 {
+    h1, .product-title {
         font-size: 48px;
     }
 
@@ -124,7 +138,7 @@ strong {
         font-size: 35px;
     }
 
-    h4, .thicc {
+    h4, .thicc, .prodp {
         font-size: 26px;
     }
 
