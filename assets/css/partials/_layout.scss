@@ -17,3 +17,29 @@ max-width: 1400px;
     align-items: center;
     justify-content: center;
 }
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background: $fgnavy;
+
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        color: $fgpink;
+    }
+
+    a {
+        color: $fgpink;
+        margin: 0 5px;
+    }
+
+    span {
+        color: $fggreen;
+        margin: 0 5px;
+    }
+
+    a:hover {
+        color: $fggreen;
+    }
+}
