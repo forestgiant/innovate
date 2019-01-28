@@ -64,12 +64,37 @@ transform: scale(-1, -1);
     all and (min-device-pixel-ratio: 1.5) {
       background-image: url("#{$at2x_path}"); 
     }
-  }
+}
+
+@mixin filterpink {
+    -webkit-filter: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
+    filter: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
+}
+
+@mixin filtergreen {
+    -webkit-filter: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
+    filter: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
+}
+
+@mixin filteryellow {
+    -webkit-filter: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
+    filter: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
+}
+
+@mixin filterblue {
+    -webkit-filter: hue-rotate(-134deg) brightness(65%) saturate(83%) contrast(100%);
+    filter: hue-rotate(-134deg) brightness(65%) saturate(83%) contrast(100%);
+}
+
+@mixin filterwhite {
+    -webkit-filter: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
+    filter: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
+}
 
 // Calendly
 iframe {
+    -webkit-filter: hue-rotate(158deg) brightness(99%) saturate(102%) contrast(100%);
     filter: hue-rotate(158deg) brightness(99%) saturate(102%) contrast(100%);
-    // filter: hue-rotate(395deg) brightness(42%) saturate(107%) contrast(103%);
 }
 
 // Loadout
