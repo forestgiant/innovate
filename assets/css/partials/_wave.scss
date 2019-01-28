@@ -27,7 +27,8 @@
 }
 
 .mask {
-    filter: $filterwhite;
+    // filter: $filterwhite;
+    @include filterwhite;
     z-index: $middle;
 }
 
@@ -36,12 +37,14 @@
 
     .wave-top {
         :nth-child(2){
-            filter: $filterpink;
+            // filter: $filterpink;
+            @include filterpink;
             @include fliphv;
             z-index: $bottom;
         }
         :nth-child(3){
-            filter: $filtergreen;
+            // filter: $filtergreen;
+            @include filtergreen;
             z-index: $top;
         }
     }
@@ -54,12 +57,14 @@
     .wave-bottom {
 
         :nth-child(2){
-            filter: $filtergreen;
+            // filter: $filtergreen;
+            @include filtergreen;
             @include fliph;
             z-index: $bottom;
         }
         :nth-child(3){
-            filter: $filterpink;
+            // filter: $filterpink;
+            @include filterpink;
             z-index: $top;
             // top: -30px;
         }
@@ -91,13 +96,15 @@
         }
 
         :nth-child(2){
-            filter: $filterpink;
+            // filter: $filterpink;
+            @include filterpink;
             z-index: $top;
             @include fliph;
         }
 
         :nth-child(3){
-            filter: $filteryellow;
+            // filter: $filteryellow;
+            @include filteryellow;
             z-index: $bottom;
             @include fliphv;
         }
@@ -112,7 +119,8 @@
 
     .wave-bottom {
         :nth-child(2){
-           filter: $filtergreen;
+        //    filter: $filtergreen;
+           @include filtergreen;
            @include fliph;
         }
     }
@@ -124,12 +132,14 @@
 
     .wave-top {
         :nth-child(2){
-            filter: $filterpink;
+            // filter: $filterpink;
+            @include filterpink;
             z-index: $top;
             @include fliph;
         }
         :nth-child(3){
-            filter: $filterblue;
+            // filter: $filterblue;
+            @include filterblue;
             z-index: $bottom;
             @include flipv;
         }
@@ -164,12 +174,14 @@
         }
 
         :nth-child(2){
-            filter: $filtergreen;
+            // filter: $filtergreen;
+            @include filtergreen;
             z-index: $top;
         }
 
         :nth-child(3){
-            filter: $filteryellow;
+            // filter: $filteryellow;
+            @include filteryellow;
             z-index: $bottom;
             @include flipv;
         }
