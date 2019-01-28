@@ -188,9 +188,13 @@
 
 
         div:first-child {
-            flex: 1.25;
+            flex: 3;
             text-align: left;
             min-width: 380px;
+
+            p {
+                max-width: 550px;
+            }
         }
 
         div:last-child {

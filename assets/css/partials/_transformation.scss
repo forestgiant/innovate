@@ -24,14 +24,26 @@
     }
 }
 
-.transformation-info:nth-of-type(2){
-    margin: 0 20px;
-}
+// .transformation-info:nth-of-type(2){
+//     margin: 0 20px;
+// }
 
 @media only screen and (max-width:800px) {
 
     .transformation-info {
         margin: 3em 0;
+        width: 60%;
     }
+}
 
+@media only screen and (max-width: 600px) {
+
+    .transformation-info {
+        width: 100%;
+        margin: 0;
+
+        p {
+            padding: 0 .25em;            
+        }
+    }
 }

@@ -1,7 +1,7 @@
 // The hero layout is separate from these styles. Go to that specific partial to access.
 
 .maxed-out {
-width: 80%;
+width: 85%;
 max-width: 1400px;
 }
 
@@ -24,22 +24,30 @@ footer {
     background: $fgnavy;
 
     p {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
         color: $fgpink;
     }
 
     a {
         color: $fgpink;
-        margin: 0 5px;
+        margin: 0 4px;
     }
 
     span {
         color: $fggreen;
-        margin: 0 5px;
+        margin: 0 4px;
     }
 
     a:hover {
         color: $fggreen;
     }
+}
+
+@media only screen and (max-width: 400px) {
+
+    footer p {
+        font-size: 14px;
+    }
+
 }
