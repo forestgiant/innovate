@@ -60,17 +60,19 @@
 
     :nth-child(2){
         filter: $filterpink;
-        @include fliph;
-        top: -30px;
-        left: -25px;
-        width: 105%;
+        // @include fliph;
+        top: -5%;
+        left: -8%;
+        // top: -30px;
+        // left: -25px;
+        width: 90%;
     }
 
     :nth-child(3){
         filter: $filteryellow;
         @include flipv;
         width: 100%;
-        left: 10px;
+        left: 0%;
     }
 }
 
@@ -78,19 +80,17 @@
 
     :nth-child(2){
         filter: $filtergreen;
-        top: -15px;
-        left: -55px;
-        width: 95%;
-        height: 95;
+        top: -8%;
+        left: -10%;
+        width: 100%;
     }
 
     :nth-child(3){
         filter: $filterblue;
-        @include flipv;
-        top: -20px;
-        left: 50px;
-        width: 90%;
-        height: 90%;
+        @include fliphv;
+        top: -5%;
+        left: 8%;
+        width: 100%;
     } 
 }
 
@@ -104,15 +104,15 @@
     :nth-child(2){
         filter: $filteryellow;
         @include fliph;
-        top: 20px;
-        left: -5px;
+        top: 5%;
+        left: 2%;
     }
 
     :nth-child(3){
         filter: $filtergreen;
         @include flipv;
-        top: 50px;
-        left: 45px;
+        top: 4%;
+        left: 8%;
     }
 }
 
@@ -121,7 +121,6 @@
 
     .results-grid div {
         flex-basis: 100%;
-        // margin: 1em 0;
         text-align: center;
     }
 
