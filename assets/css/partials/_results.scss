@@ -121,8 +121,16 @@
 
     .results-grid div {
         flex-basis: 100%;
-        margin: 1em 0;
+        // margin: 1em 0;
         text-align: center;
+    }
+
+    .results-grid .results-text {
+        margin-bottom: 5em;
+    }
+
+    .results-grid .results-text:last-of-type {
+        margin-bottom: 0;
     }
 
     .results-text p {
