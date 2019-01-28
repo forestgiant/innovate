@@ -24,8 +24,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300i,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-    {{ $style := resources.Get "/css/main.scss" | toCSS }}
+    {{ $style := resources.Get "/css/main.scss" | toCSS | postCSS }}
     {{ $sheet := $style | minify | fingerprint }}
+    
     <link type="text/css" rel="stylesheet" href="{{ $sheet.RelPermalink }}" integrity="{{ $sheet.Data.Integrity }}" media="screen"/>
     
 
