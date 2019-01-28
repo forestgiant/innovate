@@ -161,3 +161,11 @@
     }
 
 }
+
+@media only screen and (max-width: 600px) {
+
+    .results-text p {
+        width: 100%;
+        padding: 0 .25em;
+    }
+}
