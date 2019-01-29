@@ -59,19 +59,12 @@
     }
 
     :nth-child(2){
-        // filter: $filterpink;
-        @include filterpink;
-        // @include fliph;
         top: -5%;
         left: -8%;
-        // top: -30px;
-        // left: -25px;
         width: 90%;
     }
 
     :nth-child(3){
-        // filter: $filteryellow;
-        @include filteryellow;
         @include flipv;
         width: 100%;
         left: 0%;
@@ -81,16 +74,12 @@
 #blob2 {
 
     :nth-child(2){
-        // filter: $filtergreen;
-        @include filtergreen;
         top: -8%;
         left: -10%;
         width: 100%;
     }
 
     :nth-child(3){
-        // filter: $filterblue;
-        @include filterblue;
         @include fliphv;
         top: -5%;
         left: 8%;
@@ -106,16 +95,12 @@
     }
 
     :nth-child(2){
-        // filter: $filteryellow;
-        @include filteryellow;
         @include fliph;
         top: 5%;
         left: 2%;
     }
 
     :nth-child(3){
-        // filter: $filtergreen;
-        @include filtergreen;
         @include flipv;
         top: 4%;
         left: 8%;
