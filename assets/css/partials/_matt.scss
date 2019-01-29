@@ -4,9 +4,20 @@
   body {
     overflow: unset !important;
   }
- 
 
-.validation-container { 
+#fp1 { transition-delay: 0.15s }
+#fp2 { transition-delay: 0.30s }
+#fp3 { transition-delay: 0.45s }
+#fp4 { transition-delay: 0.60s }
+#fp5 { transition-delay: 0.75s }
+#fp6 { transition-delay: 0.90s }
+#fp7 { transition-delay: 1.05s }
+#fp8 { transition-delay: 1.20s }
+.first-pieces {
+  transition: all .25s linear;
+} 
+
+#validation-container { 
   display: flex;
   position: -webkit-sticky;
   position: -moz-sticky;
@@ -210,6 +221,7 @@
 
 .invisible {
   opacity: 0;
+  transform: scale(1.15);
 } 
 
 .fixed {
@@ -299,7 +311,7 @@
     height: 15% !important;
   }
 
-  .validation-container {
+  #validation-container {
     padding: 0 3rem;
     display: block;
   }
@@ -358,7 +370,7 @@
 }
 
 @media(max-width: 500px) { 
-  .validation-container {
+  #validation-container {
     padding: 0 2rem;
   }
   .body-text {

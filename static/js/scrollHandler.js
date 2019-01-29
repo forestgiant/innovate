@@ -1,38 +1,69 @@
-const { easing, keyframes, listen, styler, tween } = popmotion;
+const { keyframes, listen, stagger, styler, tween  } = popmotion;
 
 window.onload = function(fn) { 
-  let animationProgress, imageHeight, subtextHeight, textHeight = 0;
+  let animationProgress,   
+      imageHeight, 
+      subtextHeight, 
+      textHeight, 
+      timeout,
+      validationStartAbsoluteTop,
+      validationStartRelativeTop = 0;
       
   //---------------------------------------------------------------------
   // Durations. The following values affect how long the animation takes
   // to scrub through.
   //---------------------------------------------------------------------
-  const peopleScrollInDuration = 4000,
+  // TODO: consider making these values dependent on viewport size. They
+  // aren't translating perfectly between desktop and mobile.
+  //---------------------------------------------------------------------
+  const peopleScrollInDuration = 3500,
         // bodyTextTopMarginScale affects the distance between the 
         // 'subtext' groups ('PLAN & VISION, Create informed ideas,', 
         // etc.) Greater values result in longer scrolling.
         bodyTextTopMarginScale = 1.25,
         // bodyTextContainerBottomPadding affects the distance between
         // the last subtext group and the next (non-animated) section.
-        bodyTextContainerBottomPadding = '160vh';
+        bodyTextContainerBottomPadding = '160vh',
+        // The distance for the .first-pieces to complete a scale-up &
+        // fade-out animation. Staggered.
+        firstPiecesScrollOutDuration = 1000;
+  
+  const resizeDebounceDelay = 250;
 
   //---------------------------------------------------------------------
-  // DOM elements we might use a few times
+  // DOM elements
   //---------------------------------------------------------------------
   const bodyText = document.getElementsByClassName('body-text'),
         bodyTextContainer = document.getElementById('body-text-container'), 
+        firstPieces = document.getElementsByClassName('first-pieces'),
         globe = document.getElementById('globe'),
         imageSet01 = document.getElementById('image-set-01'),
         people = document.getElementById('people'),
         textContainer = document.getElementById('text-container'),
         textSet01 = document.getElementById('text-set-01'),
-        textSet02 = document.getElementById('text-set-02');
+        textSet02 = document.getElementById('text-set-02'),
+        validationContainer = document.getElementById('validation-container');
  
-  const bodyTop = document.body.getBoundingClientRect().top,
-        validationStartRelativeTop = document.getElementsByClassName('validation-container')[0].getBoundingClientRect().top, 
-        validationStartAbsoluteTop = validationStartRelativeTop - bodyTop;
- 
-  const calculateSizesAndOffsets = () => {    
+  //---------------------------------------------------------------------
+  // We'll need to re-calculate our positions and offsets when the
+  // browser resizes, but we should debounce these calculations to
+  // occur at most once within a given period.
+  //---------------------------------------------------------------------
+  window.addEventListener('resize', () => {
+    this.clearTimeout(timeout);
+    timeout = setTimeout(updateValidationSection, resizeDebounceDelay);
+  });
+
+  const updateValidationSection = () => {
+    calculateSizesAndOffsets();
+  }
+
+  const calculateSizesAndOffsets = () => { 
+    const bodyTop = document.body.getBoundingClientRect().top;
+
+    validationStartRelativeTop = validationContainer.getBoundingClientRect().top, 
+    validationStartAbsoluteTop = validationStartRelativeTop - bodyTop;
+
     imageHeight = globe.offsetHeight,
     textHeight = textSet01.offsetHeight;
     subtextHeight = textSet02.offsetHeight;  
@@ -41,53 +72,76 @@ window.onload = function(fn) {
     textContainer.style.height = textHeight + subtextHeight + 'px';
     bodyTextContainer.style.paddingBottom = bodyTextContainerBottomPadding;
 
-    let bodyTextBottomOffset = (textSet01.offsetTop + textSet01.offsetHeight);
+    const bodyTextBottomOffset = (textSet01.offsetTop + textSet01.offsetHeight);
      
     for (let i = 0; i < bodyText.length; i++) { 
       bodyText[i].style.marginTop = screen.height * bodyTextTopMarginScale + 'px';
       bodyText[i].style.top = bodyTextBottomOffset + 'px';
-    }
+    } 
   }
 
   //---------------------------------------------------------------------
   // Popmotion stylers, keyframes, and tweens
   //---------------------------------------------------------------------
-  const animatePeopleIn = styler(people);
+  const peopleStyler = styler(people);
 
   const peopleAnimation = keyframes({
     values: [
       { top: '0%', opacity: 0, scale: 0.5 },
       { top: '-24%', opacity: 1, scale: 1.15 },
-      { top: '0%', opacity: 0, scale: 0.5 },
-    ]
-  }).start(animatePeopleIn.set);
+      { top: '-24%', opacity: 1, scale: 1.15 },
+      { top: '0%', opacity: 0, scale: 0.65 },
+    ],
+      times: [0, 0.75, 0.85, 0.99]
+  }).start({
+    update: peopleStyler.set
+  }); 
 
+  const pieceAnimations = [].slice.call(firstPieces).map(piece => { 
+    const animation = keyframes({ 
+      values: [
+        { scale: 1, opacity: 1 },
+        { scale: 1.25, opacity: 0 }
+      ], 
+    }) 
 
-  let options = {
-    root: document.querySelector('#validation-container-wrapper'),
-    rootMargin: '0px',
-    threshold: 1
-  }
+    return animation;
+  })
 
-  const callback = (entries, observer) => {
-    entries.forEach(entry => {
-      console.log(entry);
+  const pieceStylers = [].slice.call(firstPieces).map(piece => {
+    return styler(piece);
+  })
+
+  listen(window, 'scroll')  
+    .filter(function(e) {
+      const scrollPosition = e.target.scrollingElement.scrollTop;
+      return scrollPosition >= validationStartAbsoluteTop;
     })
-  }
-  let observer = new IntersectionObserver(callback, options);
-  let target = textSet02;
-  observer.observe(target);
+    .start(function(e) {
+      const scrollPosition = e.target.scrollingElement.scrollTop;
 
- 
-  listen(window, 'scroll') 
-    .filter(function(v) {  
-      return v.target.scrollingElement.scrollTop >= validationStartAbsoluteTop &&           
-        v.target.scrollingElement.scrollTop <= validationStartAbsoluteTop + peopleScrollInDuration;
-    })
-    .start(function(e) {    
-      animationProgress = (e.target.scrollingElement.scrollTop - validationStartAbsoluteTop) / peopleScrollInDuration; 
-      peopleAnimation.seek(animationProgress); 
+      // Trigger the people rising up from the globe (then descending back down)
+      if (scrollPosition < validationStartAbsoluteTop + peopleScrollInDuration) {
+        animationProgress = (e.target.scrollingElement.scrollTop - validationStartAbsoluteTop) / peopleScrollInDuration; 
+        peopleAnimation.seek(animationProgress);
+      } 
+
+      // Trigger the first pieces animating out 
+      if (scrollPosition >= validationStartAbsoluteTop + (peopleScrollInDuration / 3)) {
+        stagger(pieceAnimations, 50)
+          .start((values) => {  
+            values.forEach((val = 0, i) => { 
+              pieceStylers[i].set({
+                opacity: val.opacity,
+                scale: val.scale
+              })
+            })
+          })
+      }
     }); 
 
- calculateSizesAndOffsets();
+    
+    
+ 
+  updateValidationSection();
 }
