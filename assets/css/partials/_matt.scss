@@ -4,9 +4,15 @@
   body {
     overflow: unset !important;
   }
+<<<<<<< HEAD
   
 
 #validation-container { 
+=======
+ 
+
+.validation-container { 
+>>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
   display: flex;
   position: -webkit-sticky;
   position: -moz-sticky;
@@ -18,6 +24,7 @@
   padding: 0 3rem;
   z-index: 999;
 }
+<<<<<<< HEAD
 
 #text-container {
   position: absolute;
@@ -26,6 +33,8 @@
   align-items: flex-end;
   background: #FFF;
 }
+=======
+>>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
  
 .column-1 {
   display: flex;
@@ -86,6 +95,13 @@
 
 .body-text { 
   padding-top: 2rem;
+<<<<<<< HEAD
+=======
+}
+
+.body-text-extended {
+  transition: all .5s linear;
+>>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
 }
  
 .body-text h3 {
@@ -169,7 +185,10 @@
   -moz-transform: scale(0.75);
   transform: scale(0.75); 
   top: 0px;
+<<<<<<< HEAD
   z-index: 2;
+=======
+>>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
 }
  
 .scale-people-up {
@@ -198,7 +217,15 @@
   -moz-transform: scale(1.5) !important;
   transform: scale(1.5) !important;
   opacity: 0;   
+<<<<<<< HEAD
 } 
+=======
+}
+
+.first-pieces,
+.next-pieces { 
+}
+>>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
 
 .pull-body-text-up {
   margin-top: 0 !important;
