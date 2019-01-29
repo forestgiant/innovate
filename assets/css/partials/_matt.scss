@@ -5,6 +5,7 @@
     overflow: unset !important;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 
 #validation-container { 
@@ -13,6 +14,22 @@
 
 .validation-container { 
 >>>>>>> Incomplete draft using Popmotion.js & position: sticky. Needs refining and additional animations.
+=======
+
+#fp1 { transition-delay: 0.15s }
+#fp2 { transition-delay: 0.30s }
+#fp3 { transition-delay: 0.45s }
+#fp4 { transition-delay: 0.60s }
+#fp5 { transition-delay: 0.75s }
+#fp6 { transition-delay: 0.90s }
+#fp7 { transition-delay: 1.05s }
+#fp8 { transition-delay: 1.20s }
+.first-pieces {
+  transition: all .25s linear;
+} 
+
+#validation-container { 
+>>>>>>> Working on staggering globe piece animations
   display: flex;
   position: -webkit-sticky;
   position: -moz-sticky;
