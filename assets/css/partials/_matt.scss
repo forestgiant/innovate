@@ -1,40 +1,30 @@
 /*------------------------- 
    Containers
   -------------------------*/
-body {
-  overflow-x: hidden;
-} 
+  body {
+    overflow: unset !important;
+  }
  
-#validation-start {
-  margin-bottom: 0;
-}
 
-#validation-container-wrapper {
-  max-height: 9000px;
-}
-
-.validation-container {
+.validation-container { 
   display: flex;
   position: -webkit-sticky;
+  position: -moz-sticky;
   position: sticky;
-  top: 0;
-  height: 100vh;  
+  top: 0; 
+  height: 100vh;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 3rem;
+  z-index: 999;
 }
-
-.animate-validation-upward {
-  transition: top .35s linear;
-  top: -100;
-}
-
+ 
 .column-1 {
   display: flex;
   align-items: center;
   float: left;
   width: 55%;
-  z-index: 2;
+  z-index: 999; 
 }
 
 .column-2 {
@@ -43,19 +33,25 @@ body {
   float: right;
   height: 100%;
   width: 45%;
-  z-index: 999;
+  z-index: 999; 
 }
 
 #body-text-container {
   position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 3rem 0 3rem;
+  z-index: 2;
 }
 
 /*------------------------- 
    Titles & copy
   -------------------------*/
 #text-set-01 { 
-  z-index: 999; 
-}
+  position: relative;
+  z-index: 2;  
+  background-color: #FFF;
+} 
 
 .divider {
   height: 1px;
@@ -81,7 +77,7 @@ body {
 }
 
 .body-text { 
-  padding-top: 2rem; 
+  padding-top: 2rem;
 }
 
 .body-text-extended {
@@ -163,30 +159,19 @@ body {
   transform: scale(1.17); 
 }
 
-.annotations-extended {
-  transition: opacity .5s linear;
-  transition-delay: 1.5s;
-}
-
 #people,
 #rays {
-  -webkit-transform: scale(0.35);
-  -moz-transform: scale(0.35);
-  transform: scale(0.35); 
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75); 
   top: 0px;
-}
-
-.people-extended,
-.rays-extended {
-  transition: all linear .25s; 
 }
  
 .scale-people-up {
   -webkit-transform: scale(1.15) !important;
   -moz-transform: scale(1.15) !important;
   transform: scale(1.15) !important;
-  top: -24% !important;
-  transition-delay: .6s; 
+  top: -24% !important; 
 }
 
 .scale-rays-up {
@@ -207,8 +192,7 @@ body {
 }
 
 .first-pieces,
-.next-pieces {
-  transition: all ease-in .45s; 
+.next-pieces { 
 }
 
 .pull-body-text-up {
@@ -394,6 +378,12 @@ body {
     font-size: 24px;
     line-height: 32px;
   }
+  #body-text-container {
+    padding: 0 2rem;
+  }
+  #text-container {
+    width: 100%;
+  }
   #text-set-01 {
     padding-top: 80px;
   }
@@ -421,9 +411,9 @@ body {
     opacity: 0;   
   }
 }
-
-#text-set-02,
-#text-set-03,
-#text-set-04 { 
-  margin-top: 100vh;
+ 
+.body-text {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: sticky; 
 }
