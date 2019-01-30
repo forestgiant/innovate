@@ -57,7 +57,7 @@ window.onload = function(fn) {
     bodyTextTopMarginScale = 1,
     // bodyTextContainerBottomPadding affects the distance between
     // the last subtext group and the next (non-animated) section.
-    bodyTextContainerBottomPadding = '160vh',
+    bodyTextContainerBottomPadding = '150vh',
     // The distance needed to trigger the annotation overlay
     annotationScrollDuration = screen.height * 1.75;
   }
@@ -68,9 +68,7 @@ window.onload = function(fn) {
     validationStartRelativeTop = validationContainer.getBoundingClientRect().top, 
     validationStartAbsoluteTop = validationStartRelativeTop - bodyTop;
 
-    imageHeight = globe.offsetHeight,
-    textHeight = textSet01.offsetHeight;
-    subtextHeight = textSet02.offsetHeight;  
+    imageHeight = globe.offsetHeight; 
       
     imageSet01.style.height = imageHeight + 'px'; 
     textContainer.style.height = '50vh';
@@ -94,10 +92,10 @@ window.onload = function(fn) {
   const peopleStyler = styler(people);
   const peopleAnimation = keyframes({
     values: [
-      { top: '0px', opacity: 0, scale: 0.5 },
+      { top: '90px', opacity: 1, scale: 0.4 },
       { top: '-90px', opacity: 1, scale: 1.15 },
       { top: '-90px', opacity: 1, scale: 1.15 },
-      { top: '0px', opacity: 0, scale: 0.5 },
+      { top: '90px', opacity: 0, scale: 0.4 },
     ],
       times: [0, 0.75, 0.85, 0.99]
   }).start({
