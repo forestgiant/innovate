@@ -383,7 +383,7 @@ window.onload = function(fn) {
       { opacity: 1 }, 
       { opacity: 0,},
     ],
-      times: [0, 0.33, 0.99]
+      times: [0, 0.33, 0.67]
   }).start({
     update: annotationStyler.set
   }); 
@@ -427,7 +427,7 @@ window.onload = function(fn) {
             firstPieceScrollMax = validationStartAbsoluteTop + peopleScrollInDuration,
             annotationScrollMin = peopleScrollMax * 1,
             annotationScrollMax = annotationScrollMin + annotationScrollDuration,
-            lastPieceScrollMin = annotationScrollMax,
+            lastPieceScrollMin = annotationScrollMax * 0.95,
             lastPieceScrollMax = lastPieceScrollMin + 100;
 
       // Trigger the people rising up from the globe (then descending back down)
@@ -447,7 +447,7 @@ window.onload = function(fn) {
       }
 
       // Trigger the annotations appearing over the globe (then disappearing) 
-      if (scrollPosition >= annotationScrollMin && scrollPosition < annotationScrollMax) {  
+      if (scrollPosition >= annotationScrollMin && scrollPosition <= annotationScrollMax) {  
         animationProgress = (e.target.scrollingElement.scrollTop - annotationScrollMin) / annotationScrollDuration; 
         animationProgress = animationProgress < 0.05 ? 0 : animationProgress;
         annotationAnimation.seek(animationProgress);
