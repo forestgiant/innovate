@@ -1,54 +1,15 @@
-// .logo {
-//     height: 200px;
-//     width: 200px;
-//     background: gold;
-// }
-
-.client-row-1{
-    margin-top: 4vw;
+.logofarm {
+    margin: 0 10%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.client-row-2{
-    margin-bottom: 5vw;
-    margin-top: -1vw;
-}
-
-.client-logo {
-    position: relative;
-}
-
-.client-row-1 > .client-logo {
-    margin: 1vw;
-}
-
-.client-row-2 > .client-logo{
-    margin: 1vw 2vw;
-}
-
-.client-row-2 .logo-container {
-    height: 10vw;
-    width: 10vw;
-}
-
 
 .logo {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-width: 200px;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    flex-basis: 30%;
+    background: gold;
+    height: 20vw;
+    max-height: 200px;
 }
-
-.client-row-1 .logo {
-    height: 12vw;
-    width: 13vw;
-}
-
-.client-row-2 .logo {
-    height: 12vw;
-    width: 15vw;
-}
-
 
 #ge {
     background: center / contain no-repeat url("/img/logos/ge.svg");
@@ -85,4 +46,3 @@
 #flyingaxes {
     background: center / contain no-repeat url("/img/logos/flying-axes.svg");
 }
-
