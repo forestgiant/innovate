@@ -1,0 +1,122 @@
+// Pure CSS Parallax
+#main {
+  perspective: 1px;  
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.parallax_layer--base {
+  transform: translateZ(0);
+  z-index: 20;
+}
+
+.parallax_layer--depth2 {
+  transform: translateZ(-0.125px) scale(1.125);
+  z-index: 10;
+}
+
+.parallax_layer--depth3 {
+  transform: translateZ(-0.25px) scale(1.25);
+  z-index: 0;
+}
+
+.parallax_layer--depth4 {
+  transform: translateZ(-0.5px) scale(1.5);
+  z-index: -10;
+}
+
+header,
+#transformation {
+  background: #FFF;
+}
+
+.section.wave.wave-photo.flex-column {
+  margin-top: 0;
+}
+
+.no-top-margin {
+  margin-top: 0px !important;
+}
+ 
+.white-bg {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+} 
+
+.wave-spacer {
+    width: 100vw;
+    height: 45vh;
+}
+
+.hero-img {
+  position: absolute;
+  object-fit: cover;
+  top: 65%;
+  width: 100vw;
+  z-index: -1;
+}
+
+#top-rd {
+  /* TODO: Refactor to set top via scrollHandler */
+  top: 68%;
+}
+
+#top-gn {
+  /* TODO: Refactor to set top via scrollHandler */
+  top: 63%;
+  z-index: 9999;
+  transform: translateZ(-0.25px) scale(1.25) rotate(180deg);
+}
+
+.blue-bg {
+  position: absolute;
+  top: 0;
+  background: #263963;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+#product {
+  background: #FFF;
+}
+
+.wave-container {
+  background-color: transparent !important;
+}
+
+#work-together-wave {
+  /* TODO: Refactor to set top via scrollHandler */
+  top: 285%;
+  z-index: -1;
+}
+
+#validation-start {
+  margin: 0px !important;
+}
+
+.wave-top {
+    z-index: 3;
+}
+
+.hero-container {
+    z-index: 99999;
+}
+
+#transformation div {
+    z-index: 3;
+    background: #FFF;
+}

@@ -33,7 +33,7 @@
 }
 
 .wave-photo {
-    background: center / cover no-repeat url("/img/photos/hero.jpg");
+    /*background: center / cover no-repeat url("/img/photos/hero.jpg");*/
 
     .wave-top {
         :nth-child(2){
@@ -69,7 +69,7 @@
 
 .wave-overlay {
     position: absolute;
-    background-image: url('/img/noiseBG.jpg');
+    /*background-image: url('/img/noiseBG.jpg');*/
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;

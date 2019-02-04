@@ -134,8 +134,7 @@ body {
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-  z-index: 999;
+  height: 100%; 
 }
 
 .image-wrapper img {
@@ -145,9 +144,7 @@ body {
   right: 0;
   height: auto;
   margin: auto;
-  width: 100%;
-  max-width: 500px;
-  z-index: 999;
+  width: 100%; 
 }
 
 .image-wrapper img.globe-shadow {
