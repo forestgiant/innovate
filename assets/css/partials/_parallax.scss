@@ -1,4 +1,5 @@
 // Pure CSS Parallax
+<<<<<<< HEAD
 .plx-viewport {
   perspective: 1px;  
   -webkit-perspective-origin-x: 100%;
@@ -7,12 +8,22 @@
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+=======
+#main {
+  perspective: 1px;  
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+>>>>>>> Full working draft of parallax effects.
 }
 
 .plx-layer {
   position: absolute;
+<<<<<<< HEAD
   -webkit-transform-origin-x: 100%;
   transform-origin-x: 100%;
+=======
+>>>>>>> Full working draft of parallax effects.
   top: 0;
   right: 0;
   bottom: 0;
@@ -20,7 +31,12 @@
   overflow-y: scroll;
 }
 
+<<<<<<< HEAD
 .plx-group {
+=======
+.plx-group,
+.plx-group-top {
+>>>>>>> Full working draft of parallax effects.
   position: relative; 
   transform-style: preserve-3d;
   z-index: -10;
@@ -30,11 +46,18 @@
   }
 }
 
+<<<<<<< HEAD
 .plx-depth1 {
   transform: translateZ(-0.05px) scale(1.05) !important;
   z-index: 10;
 }
 
+=======
+.plx-group-top {
+  z-index: 999;
+}
+ 
+>>>>>>> Full working draft of parallax effects.
 .plx-depth2 {
   transform: translateZ(-0.125px) scale(1.125) !important;
   z-index: 10;
@@ -50,6 +73,7 @@
   z-index: -10;
 }
 
+<<<<<<< HEAD
 /* --------------------------------------------
   Utilities
 ----------------------------------------------- */
@@ -67,6 +91,47 @@
 .revY {
   transform: rotate(180deg) !important;
   z-index: 10;
+=======
+.plx-depth2-revY {
+  transform: translateZ(-0.125px) scale(1.125) rotate(180deg) !important;
+  z-index: -10;
+}
+
+.plx-depth3-revY {
+  transform: translateZ(-0.25px) scale(1.25) rotate(180deg) !important;
+  z-index: 0;
+}
+
+.plx-depth4-revY {
+  transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
+  z-index: 10;
+
+}
+
+
+/* --------------------------------------------
+  Utilities
+----------------------------------------------- */
+.full-width {
+  width: 100vw;
+}
+
+.full-height {
+  object-fit: cover;
+  height: 150%;
+}
+
+.top-depth {
+  z-index: 20 !important;
+}
+
+.mid-depth {
+  z-index: 0 !important;
+}
+
+.btm-depth {
+  z-index: -20 !important;
+>>>>>>> Full working draft of parallax effects.
 }
 
 /* --------------------------------------------
@@ -90,7 +155,10 @@ header.flex-row,
 }
 
 @media(max-width: 768px) {
+<<<<<<< HEAD
   .full-height {
     height: 150%;
   }
+=======
+>>>>>>> Full working draft of parallax effects.
 }
