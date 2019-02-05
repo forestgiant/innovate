@@ -32,9 +32,7 @@
     z-index: $middle;
 }
 
-.wave-photo {
-    background: center / cover no-repeat url("/img/photos/hero.jpg");
-
+.wave-photo { 
     .wave-top {
         :nth-child(2){
             @include fliphv;
@@ -61,15 +59,9 @@
         }
     }
 }
-
-.wave-container {
-    background-color: $fgnavy;
-    position: relative;
-}
-
+ 
 .wave-overlay {
-    position: absolute;
-    background-image: url('/img/noiseBG.jpg');
+    position: absolute; 
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
@@ -112,7 +104,6 @@
 
 .wave-process {
     position: relative;
-    background: center / cover no-repeat url("/img/photos/process.jpg");
 
     .wave-top {
         :nth-child(2){

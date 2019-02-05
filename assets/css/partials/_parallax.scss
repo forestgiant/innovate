@@ -1,0 +1,110 @@
+// Pure CSS Parallax
+#main {
+  perspective: 1px;  
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.plx-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.plx-group,
+.plx-group-top {
+  position: relative; 
+  transform-style: preserve-3d;
+  z-index: -10;
+
+  img {
+    width: 100vw; 
+  }
+}
+
+.plx-group-top {
+  z-index: 999;
+}
+ 
+.plx-depth2 {
+  transform: translateZ(-0.125px) scale(1.125) !important;
+  z-index: 10;
+}
+
+.plx-depth3 {
+  transform: translateZ(-0.25px) scale(1.25) !important;
+  z-index: 0;
+}
+
+.plx-depth4 {
+  transform: translateZ(-0.5px) scale(1.5) !important;
+  z-index: -10;
+}
+
+.plx-depth2-revY {
+  transform: translateZ(-0.125px) scale(1.125) rotate(180deg) !important;
+  z-index: -10;
+}
+
+.plx-depth3-revY {
+  transform: translateZ(-0.25px) scale(1.25) rotate(180deg) !important;
+  z-index: 0;
+}
+
+.plx-depth4-revY {
+  transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
+  z-index: 10;
+
+}
+
+
+/* --------------------------------------------
+  Utilities
+----------------------------------------------- */
+.full-width {
+  width: 100vw;
+}
+
+.full-height {
+  object-fit: cover;
+  height: 150%;
+}
+
+.top-depth {
+  z-index: 20 !important;
+}
+
+.mid-depth {
+  z-index: 0 !important;
+}
+
+.btm-depth {
+  z-index: -20 !important;
+}
+
+/* --------------------------------------------
+  Page cleanup
+----------------------------------------------- */
+nav,
+header.flex-row,
+#transformation,
+#product,
+#results {
+  background: #fff;
+}
+
+.wave {
+  margin: 0 !important;
+}
+
+.mask {
+  position: relative;
+  z-index: 0 !important;
+}
+
+@media(max-width: 768px) {
+}
