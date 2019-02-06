@@ -1,378 +1,179 @@
+const { everyFrame, keyframes, listen, stagger, styler, tween  } = popmotion;
+
 window.onload = function(fn) { 
-  let controller, timeout = null,  
-      imageHeight, pieceTransitionDelay, resizeDebounceDelay, subtextHeight, textHeight = 0, 
-      ai1Offset, ao1Offset, ai2Offset, ao2Offset, ai3Offset = 0,
-      //-------------------------------------------------------------------------------------------------------------
-      // The following approach tests for Google Chrome, and was advised in lieu of 
-      // testing the User agent string in an up-to-date (v1-v71) response.
-      // https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769
-      //-------------------------------------------------------------------------------------------------------------
-      isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime),
-      isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-      
-  const setDefaults = () => {
-    chromeScale = isChrome === true ? 0.85 : 1;
-    resizeDebounceDelay = 250;
-    pieceTransitionDelay = 0.2;
-    transitionDuration = 1560 * chromeScale;  
-  }
-  
-  const calculateSizesAndOffsets = () => {   
-    topWaveBottom = document.getElementById('validation-start').getBoundingClientRect().bottom,
-    bodyRectTop = document.body.getBoundingClientRect().top, 
-    imageHeight = document.getElementById('globe').offsetHeight,
-    textHeight = document.getElementById('text-set-01').offsetHeight;
-    subtextHeight = document.getElementById('text-set-02').offsetHeight; 
+  let animationProgress,    
+      imageHeight,  
+      scrollTimeout,
+      timeout,
+      triggerPoint_Sphere1,
+      triggerPoint_Sphere2,
+      triggerPoint_Sphere3 = 0;
 
-    ai1Offset = topWaveBottom - bodyRectTop,
-    ao1Offset = ai1Offset + (transitionDuration * 1 * chromeScale),
-    ai2Offset = ai1Offset + (transitionDuration * 2 * chromeScale),
-    ao2Offset = ai1Offset + (transitionDuration * 3 * chromeScale),
-    ai3Offset = ai1Offset + (transitionDuration * 4 * chromeScale);
-    
-    //------------------------------------------------------------------
-    // Need to set the height of these containers in order to vertically
-    // center them. They include absolutely-positioned children, so
-    // the containers are unaware of their heights, which means the
-    // children can't be positioned by CSS. 5
-    //------------------------------------------------------------------  
-    
-    if (isSafari !== true) { 
-      document.getElementById('validation-container-wrapper').style.maxHeight = (ai3Offset * 0.85) + 'px';
-      document.getElementById('validation-end').style.margin = (ai3Offset * 0.8) + 'px 0 0 0';
-    }
-
-    document.getElementById('image-set-01').style.height = imageHeight + 'px'; 
-    document.getElementById('text-container').style.height = textHeight + subtextHeight + 'px';
-  }
-
-  const configureStylesForSafari = () => {   
-   
-
-    document.getElementsByClassName('validation-container')[0].style.position = "relative";
-    document.getElementById('validation-container-wrapper').style.maxHeight = "initial";
-  }
-
+  const resizeDebounceDelay = 250;
   //---------------------------------------------------------------------
-  // TODO: Remove when Chrome threaded scrolling issue has been handled.
-  // Currently in place because there are CSS attributes we want to add
-  // (like transition delay) to some elements that would impact the
-  // GSAP tweening in ways we don't want.
+  // DOM elements
   //---------------------------------------------------------------------
-  const configureStylesForChrome = () => { 
-    document.getElementById('annotations').classList.add('annotations-extended');
-    document.getElementById('people').classList.add('people-extended');
-    document.getElementById('rays').classList.add('rays-extended');
-    document.querySelectorAll('.body-text').forEach(function(bodyText) {
-      bodyText.classList.add('body-text-extended');
-    });
-    document.querySelectorAll('.pieces').forEach(function(piece) {
-      piece.style.transitionDelay = pieceTransitionDelay + 's';
-      pieceTransitionDelay += 0.1;
-    });
-  }
-
-  const updateValidationSection = () => { 
-    typeof controller !== 'undefined' && controller !== null && controller.destroy(true);
-    calculateSizesAndOffsets();
-    isChrome === true ? configureSMScenesWithoutGSAP() : configureSMScenesWithGSAP();
-  }
-
-  //-----------------------------------------------------------
-  // We're debouncing the resize event handler so it only fires
-  // on completion. The event handler itself recalculates
-  // positions and offsets.
-  //-----------------------------------------------------------
+  const main = document.getElementById('main'),
+        people = document.getElementById('people'),
+        productText = document.getElementsByClassName('product-text')[0],
+        sphereBase01 = document.getElementById('sphere-base-01'), 
+        sphere02Pieces = document.getElementById('sphere-02-pieces'),
+        sphere03Pieces = document.getElementById('sphere-03-pieces'),
+        validationImageContainers = document.getElementsByClassName('validation-image-container');
+ 
+  //---------------------------------------------------------------------
+  // We'll need to re-calculate our positions, offsets, and durations
+  // when the browser resizes, but we should debounce these calculations 
+  // to occur at most once within a given period.
+  //---------------------------------------------------------------------
   window.addEventListener('resize', () => {
     this.clearTimeout(timeout);
-    timeout = setTimeout(updateValidationSection, resizeDebounceDelay);
-  }); 
+    timeout = setTimeout(setSizesAndOffsets, resizeDebounceDelay);
+  });
  
-  const configureSMScenesWithGSAP = () => { 
-    controller = new ScrollMagic.Controller(); 
+  const setSizesAndOffsets = () => { 
+    imageHeight = sphereBase01.offsetHeight;
+    productTextHeight = productText.offsetHeight;
+    triggerPoint_Sphere1 = sphereBase01.getBoundingClientRect().bottom - screen.height;
 
-    if (isSafari === true) {
-      new ScrollMagic.Scene({
-        duration: ao2Offset + 2000,
-        offset: ai1Offset,
-      })
-      .setPin('#main') 
-      .addTo(controller);
+    if (screen.width > 768) {
+      triggerPoint_Sphere2 = triggerPoint_Sphere1 + imageHeight;
+      triggerPoint_Sphere3 = triggerPoint_Sphere2 + imageHeight; 
+    } else {
+      triggerPoint_Sphere2 = triggerPoint_Sphere1 + imageHeight + productTextHeight;
+      triggerPoint_Sphere3 = triggerPoint_Sphere2 + imageHeight + productTextHeight;
     }
-    //---------------------------------------------------------
-    // Scene 1: Transition in
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({ 
-      duration: 0,
-      offset: ai1Offset,
+
+    Array.prototype.forEach.call(validationImageContainers, (imageContainer) => {
+      imageContainer.style.height = imageHeight + 'px';
     }) 
-    .setTween('#text-set-02', { 
-      marginTop: '0px',
-      opacity: 1,
-    })
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: transitionDuration,
-      offset: ai1Offset, 
-    })  
-    .setTween('#people', {
-      scale: 1.15,
-      transform: 'scale(1.15) translateY(-50%)',
-    }) 
-    .addTo(controller);
-
-        //-----------------------------------------------------
-        // Scene 1: Transition out
-        //-----------------------------------------------------
-        let tweenFirstPiecesOut = TweenMax.staggerFromTo(".first-pieces", 2,
-          { opacity: 1, 
-            scale: 1.0 }, 
-          { opacity: 0, 
-            scale: 1.5, 
-            ease: Linear.easeNone }, 1);
-
-        new ScrollMagic.Scene({
-          duration: transitionDuration * 1.5,
-          offset: ao1Offset,
-        })
-        .setTween(tweenFirstPiecesOut) 
-        .addTo(controller);
-
-        new ScrollMagic.Scene({
-          duration: transitionDuration,
-          offset: ao1Offset,
-        }) 
-        .setTween('#text-set-02', {
-          opacity: 0,
-          display: 'none',
-        })
-        .addTo(controller);
-
-        new ScrollMagic.Scene({
-          duration: transitionDuration,
-          offset: ao1Offset, 
-        })  
-        .setTween('#people', {
-          scale: 0.85,
-          opacity: 0,
-        }) 
-        .addTo(controller);
- 
-    //---------------------------------------------------------
-    // Scene 2: Transition in
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({ 
-      offset: ai2Offset,
-      duration: 0,
-    }) 
-    .setTween('#text-set-03', {  
-      marginTop: '0px',
-      opacity: 1,
-    })
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: transitionDuration,
-      offset: ai2Offset,
-    }) 
-    .setTween('#annotations', {
-      opacity: 1,
-    }) 
-    .addTo(controller);
-
-        //-----------------------------------------------------
-        // Scene 2: Transition out
-        //-----------------------------------------------------
-        let tweenLastPiecesOut = TweenMax.staggerFromTo(".next-pieces", 2,
-          { opacity: 1, scale: 1.0 }, { opacity: 0, scale: 1.5, ease: Linear.easeNone }, 1);
-
-        new ScrollMagic.Scene({
-          duration: transitionDuration * 1.5,
-          offset: ao2Offset,
-        })
-        .setTween(tweenLastPiecesOut) 
-        .addTo(controller);
- 
-        new ScrollMagic.Scene({
-          duration: transitionDuration,
-          offset: ao2Offset,
-        }) 
-        .setTween('#text-set-03', {
-          opacity: 0,
-          display: 'none',
-        })
-        .addTo(controller);
-
-        new ScrollMagic.Scene({
-          duration: transitionDuration,
-          offset: ao2Offset,
-        })
-        .setTween('#annotations', {
-          opacity: 0,
-        }) 
-        .addTo(controller);
-
-    //---------------------------------------------------------
-    // Scene 3: Transition in (no transition out)
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({ 
-      offset: ai3Offset,
-      duration: 800,
-    }) 
-    .setTween('#text-set-04', { 
-      marginTop: '0px',
-      opacity: 1,
-    })
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#globe', 'rotate')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setTween('#rays', {
-      scale: 1.35,
-      top: "2px",
-    }) 
-    .addTo(controller); 
-
-    // new ScrollMagic.Scene({
-    //   duration: 0,
-    //   offset: ai3Offset + 2200,
-    // })
-    // .setTween('.validation-container', {
-    //   marginTop: '-100%',
-    // }) 
-    // .addTo(controller);
   }
 
+  //---------------------------------------------------------------------
+  // Popmotion stylers, keyframes, and tweens
+  //---------------------------------------------------------------------
+  // People
+  //---------------------------------------------------------------------
+  const peopleStyler = styler(people);
+  const peopleAnimation = keyframes({
+    values: [
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1 }, 
+    ],
+      times: [0, 0.5]
+  });
   
+  const peopleControls = peopleAnimation.start({
+    update: peopleStyler.set
+  });
 
-  const configureSMScenesWithoutGSAP = () => {
-    controller = new ScrollMagic.Controller(); 
-    //---------------------------------------------------------
-    // Scene 1: Transition in
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai1Offset,
+  peopleControls.pause();
+  //---------------------------------------------------------------------
+  // First set of pieces
+  //---------------------------------------------------------------------
+  const pieces02Styler = styler(sphere02Pieces);
+  const pieces02Animation = keyframes({
+    values: [
+      { opacity: 1 },
+      { opacity: 0 }, 
+    ],
+      times: [0, 0.5]
+  });
+  
+  const pieces02Controls = pieces02Animation.start({
+    update: pieces02Styler.set
+  });
+
+  pieces02Controls.pause();
+  //---------------------------------------------------------------------
+  // Annotations
+  //---------------------------------------------------------------------
+  const annotationsStyler = styler(annotations);
+  const annotationsAnimation = keyframes({
+    values: [
+      { opacity: 0 },
+      { opacity: 1 }, 
+    ],
+      times: [0, 0.5]
+  });
+  
+  const annotationsControls = annotationsAnimation.start({
+    update: annotationsStyler.set
+  });
+
+  annotationsControls.pause();
+  //---------------------------------------------------------------------
+  // Second set of pieces
+  //---------------------------------------------------------------------
+  const pieces03Styler = styler(sphere03Pieces);
+  const pieces03Animation = keyframes({
+    values: [
+      { opacity: 1 },
+      { opacity: 0 }, 
+    ],
+      times: [0, 0.5]
+  });
+  
+  const pieces03Controls = pieces03Animation.start({
+    update: pieces03Styler.set
+  });
+
+  pieces03Controls.pause();
+  //---------------------------------------------------------------------
+  // Rays
+  //---------------------------------------------------------------------
+  const raysStyler = styler(rays);
+  const raysAnimation = keyframes({
+    values: [
+      { scale: 0 },
+      { scale: 1 }, 
+    ],
+      times: [0, 0.5]
+  });
+  
+  const raysControls = raysAnimation.start({
+    update: raysStyler.set
+  });
+
+  raysControls.pause();
+  //---------------------------------------------------------------------
+  // Our scroll handler. Throttle the number of times we update our 
+  // animation to the browser's framerate. Cuts down on jank.
+  //---------------------------------------------------------------------
+  main.addEventListener('scroll', (e) => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+
+    scrollTimeout = window.requestAnimationFrame(() => {
+      const scrollPosition = e.target.scrollTop;
+
+      if (scrollPosition >= triggerPoint_Sphere1) {
+        // Trigger the people rising up from the globe (then descending back down)
+        if (scrollPosition < triggerPoint_Sphere2) {
+          animationProgress = (scrollPosition - triggerPoint_Sphere1) / imageHeight; 
+          peopleControls.seek(animationProgress);
+        }
+
+        // Trigger the first set of globe pieces fading out and the annotations fading in
+        if (scrollPosition >= triggerPoint_Sphere2 && scrollPosition < triggerPoint_Sphere3) {
+          animationProgress = (scrollPosition - triggerPoint_Sphere2) / imageHeight; 
+          animationProgress = animationProgress <= 0.1 ? 0 : animationProgress;
+          pieces02Controls.seek(animationProgress);
+          annotationsControls.seek(animationProgress);
+        }
+
+        // Trigger the second set of pieces fading out and the rays scaling up
+        if (scrollPosition >= triggerPoint_Sphere3 && scrollPosition < (triggerPoint_Sphere3 + imageHeight)) {
+          animationProgress = (scrollPosition - triggerPoint_Sphere3) / imageHeight; 
+          pieces03Controls.seek(animationProgress);
+          raysControls.seek(animationProgress);
+        }
+      }
     })
-    .setClassToggle('#text-set-02', 'pull-body-text-up')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: transitionDuration,
-      offset: ai1Offset,
-    })
-    .setClassToggle('#people', 'scale-people-up')
-    .addTo(controller);
-
-        //-----------------------------------------------------
-        // Scene 1: Transition out
-        //-----------------------------------------------------
-        new ScrollMagic.Scene({
-          duration: 0,
-          offset: ao1Offset,
-        })
-        .setClassToggle('#text-set-02', 'invisible')
-        .addTo(controller);
-
-        new ScrollMagic.Scene({
-          duration: 0,
-          offset: ao1Offset,
-        })
-        .setClassToggle('.first-pieces', 'scale-pieces-up')
-        .addTo(controller);
-
-    //---------------------------------------------------------
-    // Scene 2: Transition in
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai2Offset,
-    })
-    .setClassToggle('#text-set-02', 'display-none')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai2Offset,
-    })
-    .setClassToggle('#text-set-03', 'pull-body-text-up')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai2Offset,
-    })
-    .setClassToggle('#annotations', 'visible')
-    .addTo(controller);
-
-        //-----------------------------------------------------
-        // Scene 2: Transition out
-        //-----------------------------------------------------
-        new ScrollMagic.Scene({
-          duration: 0,
-          offset: ao2Offset,
-        })
-        .setClassToggle('#text-set-03', 'invisible')
-        .addTo(controller);
-    
-        new ScrollMagic.Scene({
-          duration: 0,
-          offset: ao2Offset
-        })
-        .setClassToggle('.next-pieces', 'scale-pieces-up')
-        .addTo(controller);
-
-    //---------------------------------------------------------
-    // Scene 3: Transition in
-    //---------------------------------------------------------
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#text-set-03', 'display-none')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#text-set-04', 'pull-body-text-up')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#annotations', 'fade-out-quick')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#globe', 'rotate')
-    .addTo(controller);
-
-    new ScrollMagic.Scene({
-      duration: 0,
-      offset: ai3Offset,
-    })
-    .setClassToggle('#rays', 'scale-rays-up') 
-    .addTo(controller);  
-  }
-
-  setDefaults(); 
-  isChrome === true && configureStylesForChrome();
-  isSafari === true && configureStylesForSafari();
-  updateValidationSection();
+  }, {
+    passive: true
+  })
+  
+  setSizesAndOffsets();
 }

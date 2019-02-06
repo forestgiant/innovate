@@ -1,0 +1,26 @@
+.validation-image-container {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+#people,
+#annotations {
+  opacity: 0;
+}
+
+#rays {
+  transform: scale(0);
+}
+
+@media(max-width: 768px) {
+  .validation-image-container img {
+    max-width: 100%;
+  }
+}

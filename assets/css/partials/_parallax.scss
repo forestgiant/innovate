@@ -58,32 +58,14 @@
 .plx-depth4-revY {
   transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
   z-index: 10;
-
 }
-
 
 /* --------------------------------------------
   Utilities
 ----------------------------------------------- */
-.full-width {
-  width: 100vw;
-}
-
 .full-height {
   object-fit: cover;
-  height: 150%;
-}
-
-.top-depth {
-  z-index: 20 !important;
-}
-
-.mid-depth {
-  z-index: 0 !important;
-}
-
-.btm-depth {
-  z-index: -20 !important;
+  height: 100%;
 }
 
 /* --------------------------------------------
@@ -107,4 +89,7 @@ header.flex-row,
 }
 
 @media(max-width: 768px) {
+  .full-height {
+    height: 150%;
+  }
 }
