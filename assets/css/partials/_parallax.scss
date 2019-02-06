@@ -105,19 +105,14 @@
 .plx-depth4-revY {
   transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
   z-index: 10;
-
 }
-
 
 /* --------------------------------------------
   Utilities
 ----------------------------------------------- */
-.full-width {
-  width: 100vw;
-}
-
 .full-height {
   object-fit: cover;
+<<<<<<< HEAD
   height: 150%;
 }
 
@@ -132,6 +127,9 @@
 .btm-depth {
   z-index: -20 !important;
 >>>>>>> Full working draft of parallax effects.
+=======
+  height: 100%;
+>>>>>>> Full working draft of parallax + scroll animations
 }
 
 /* --------------------------------------------
@@ -156,9 +154,15 @@ header.flex-row,
 
 @media(max-width: 768px) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   .full-height {
     height: 150%;
   }
 =======
 >>>>>>> Full working draft of parallax effects.
+=======
+  .full-height {
+    height: 150%;
+  }
+>>>>>>> Full working draft of parallax + scroll animations
 }
