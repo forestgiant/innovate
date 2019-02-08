@@ -15,6 +15,10 @@
   opacity: 0;
 }
 
+#annotations {
+  z-index: 10;
+}
+
 #rays {
   transform: scale(0);
 }

@@ -1,13 +1,18 @@
 // Pure CSS Parallax
-#main {
+.plx-viewport {
   perspective: 1px;  
+  -webkit-perspective-origin-x: 100%;
+  perspective-origin-x: 100%;
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .plx-layer {
   position: absolute;
+  -webkit-transform-origin-x: 100%;
+  transform-origin-x: 100%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -15,8 +20,7 @@
   overflow-y: scroll;
 }
 
-.plx-group,
-.plx-group-top {
+.plx-group {
   position: relative; 
   transform-style: preserve-3d;
   z-index: -10;
@@ -26,10 +30,11 @@
   }
 }
 
-.plx-group-top {
-  z-index: 999;
+.plx-depth1 {
+  transform: translateZ(-0.05px) scale(1.05) !important;
+  z-index: 10;
 }
- 
+
 .plx-depth2 {
   transform: translateZ(-0.125px) scale(1.125) !important;
   z-index: 10;
@@ -45,27 +50,23 @@
   z-index: -10;
 }
 
-.plx-depth2-revY {
-  transform: translateZ(-0.125px) scale(1.125) rotate(180deg) !important;
-  z-index: -10;
-}
-
-.plx-depth3-revY {
-  transform: translateZ(-0.25px) scale(1.25) rotate(180deg) !important;
-  z-index: 0;
-}
-
-.plx-depth4-revY {
-  transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
-  z-index: 10;
-}
-
 /* --------------------------------------------
   Utilities
 ----------------------------------------------- */
 .full-height {
   object-fit: cover;
   height: 100%;
+}
+
+.absolute {
+  position: absolute;
+  width: 100vw;
+  z-index: -10;
+}
+
+.revY {
+  transform: rotate(180deg) !important;
+  z-index: 10;
 }
 
 /* --------------------------------------------
