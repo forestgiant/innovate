@@ -59,17 +59,16 @@ window.onload = function(fn) {
   // and (2) whenever the window resizes.
   //---------------------------------------------------------------------
   const setSizesAndOffsets = () => { 
-    console.log("Setting sizes");
     imageHeight = sphereBase01.offsetHeight;
     scrollDuration = imageHeight * 1.25;
     productTextHeight = productText.offsetHeight;
 
     if (screen.width > 768) {
-      triggerPoint_Sphere1 = sphereBase01.getBoundingClientRect().top - screen.height;
+      triggerPoint_Sphere1 = sphereBase01.getBoundingClientRect().top + main.scrollTop - (screen.height / 1.25);
       triggerPoint_Sphere2 = triggerPoint_Sphere1 + scrollDuration;
       triggerPoint_Sphere3 = triggerPoint_Sphere2 + scrollDuration; 
     } else {
-      triggerPoint_Sphere1 = sphereBase01.getBoundingClientRect().top - (screen.height / 2);
+      triggerPoint_Sphere1 = sphereBase01.getBoundingClientRect().top + main.scrollTop - (screen.height / 2);
       triggerPoint_Sphere2 = triggerPoint_Sphere1 + scrollDuration + productTextHeight;
       triggerPoint_Sphere3 = triggerPoint_Sphere2 + scrollDuration + productTextHeight;
     }
@@ -77,10 +76,6 @@ window.onload = function(fn) {
     Array.prototype.forEach.call(validationImageContainers, (imageContainer) => {
       imageContainer.style.height = imageHeight + 'px';
     }) 
-
-    console.log("triggerPoint_Sphere1: " + triggerPoint_Sphere1);
-    console.log("triggerPoint_Sphere2: " + triggerPoint_Sphere2);
-    console.log("triggerPoint_Sphere3: " + triggerPoint_Sphere3);
   }
 
   //---------------------------------------------------------------------
@@ -162,7 +157,7 @@ window.onload = function(fn) {
       { scale: 0 },
       { scale: 1 }, 
     ],
-      times: [0, 0.5]
+      times: [0, 0.25]
   });
   
   const raysControls = raysAnimation.start({

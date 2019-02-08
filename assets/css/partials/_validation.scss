@@ -16,8 +16,24 @@
   opacity: 0;
 }
 
+#sphere-base-01,
+#sphere-base-02,
+#sphere-base-03 {
+  z-index: 1;
+}
+
+#people,
+#rays {
+  z-index: 0;
+}
+
+#sphere-02-pieces,
+#sphere-03-pieces {
+  z-index: 1;
+}
+
 #annotations {
-  z-index: 10;
+  z-index: 2;
 }
 
 #rays {
