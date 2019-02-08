@@ -1,0 +1,210 @@
+// Pure CSS Parallax
+<<<<<<< HEAD
+<<<<<<< HEAD
+.plx-viewport {
+  perspective: 1px;  
+  -webkit-perspective-origin-x: 100%;
+  perspective-origin-x: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+=======
+#main {
+=======
+.plx-viewport {
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+  perspective: 1px;  
+  -webkit-perspective-origin-x: 100%;
+  perspective-origin-x: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+<<<<<<< HEAD
+  overflow-y: auto;
+>>>>>>> Full working draft of parallax effects.
+=======
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+}
+
+.plx-layer {
+  position: absolute;
+<<<<<<< HEAD
+<<<<<<< HEAD
+  -webkit-transform-origin-x: 100%;
+  transform-origin-x: 100%;
+=======
+>>>>>>> Full working draft of parallax effects.
+=======
+  -webkit-transform-origin-x: 100%;
+  transform-origin-x: 100%;
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+.plx-group {
+=======
+.plx-group,
+.plx-group-top {
+>>>>>>> Full working draft of parallax effects.
+=======
+.plx-group {
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+  position: relative; 
+  transform-style: preserve-3d;
+  z-index: -10;
+
+  img {
+    width: 100vw; 
+  }
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+.plx-depth1 {
+  transform: translateZ(-0.05px) scale(1.05) !important;
+  z-index: 10;
+}
+
+=======
+.plx-group-top {
+  z-index: 999;
+}
+ 
+>>>>>>> Full working draft of parallax effects.
+=======
+.plx-depth1 {
+  transform: translateZ(-0.05px) scale(1.05) !important;
+  z-index: 10;
+}
+
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+.plx-depth2 {
+  transform: translateZ(-0.125px) scale(1.125) !important;
+  z-index: 10;
+}
+
+.plx-depth3 {
+  transform: translateZ(-0.25px) scale(1.25) !important;
+  z-index: 0;
+}
+
+.plx-depth4 {
+  transform: translateZ(-0.5px) scale(1.5) !important;
+  z-index: -10;
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+/* --------------------------------------------
+  Utilities
+----------------------------------------------- */
+.full-height {
+  object-fit: cover;
+  height: 100%;
+}
+
+.absolute {
+  position: absolute;
+  width: 100vw;
+  z-index: -10;
+}
+
+.revY {
+  transform: rotate(180deg) !important;
+  z-index: 10;
+=======
+.plx-depth2-revY {
+  transform: translateZ(-0.125px) scale(1.125) rotate(180deg) !important;
+  z-index: -10;
+}
+
+.plx-depth3-revY {
+  transform: translateZ(-0.25px) scale(1.25) rotate(180deg) !important;
+  z-index: 0;
+}
+
+.plx-depth4-revY {
+  transform: translateZ(-0.5px) scale(1.5) rotate(180deg) !important;
+  z-index: 10;
+}
+
+=======
+>>>>>>> Full implementation of requestAnimationFrame for scroll handling. Styling tweaks.
+/* --------------------------------------------
+  Utilities
+----------------------------------------------- */
+.full-height {
+  object-fit: cover;
+<<<<<<< HEAD
+  height: 150%;
+}
+
+.top-depth {
+  z-index: 20 !important;
+}
+
+.mid-depth {
+  z-index: 0 !important;
+}
+
+.btm-depth {
+  z-index: -20 !important;
+>>>>>>> Full working draft of parallax effects.
+=======
+  height: 100%;
+>>>>>>> Full working draft of parallax + scroll animations
+}
+
+.absolute {
+  position: absolute;
+  width: 100vw;
+  z-index: -10;
+}
+
+.revY {
+  transform: rotate(180deg) !important;
+  z-index: 10;
+}
+
+/* --------------------------------------------
+  Page cleanup
+----------------------------------------------- */
+nav,
+header.flex-row,
+#transformation,
+#product,
+#results {
+  background: #fff;
+}
+
+.wave {
+  margin: 0 !important;
+}
+
+.mask {
+  position: relative;
+  z-index: 0 !important;
+}
+
+@media(max-width: 768px) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+  .full-height {
+    height: 150%;
+  }
+=======
+>>>>>>> Full working draft of parallax effects.
+=======
+  .full-height {
+    height: 150%;
+  }
+>>>>>>> Full working draft of parallax + scroll animations
+}

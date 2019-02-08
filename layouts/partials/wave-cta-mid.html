@@ -1,4 +1,4 @@
-<div class="wave-container" >
+<div class="wave-container plx-group plx">
     <!--
         Just a quick note: I'm basing the starting position of the validation
         animation sequence off the container element here that includes height
@@ -10,20 +10,20 @@
         this partial, so I can test. I'll see if I can figure out a less brittle way
         of getting this done.
     -->
-    <div class="wave-overlay"></div>
+    <img src="/img/noiseBG.jpg" class="plx-layer plx-depth4 full-height plx image-lg"/>
+    <img class="line revY" src="/img/illustrations/line-a-pink.png">
+    <img class="line plx-layer plx-depth3 plx" src="/img/illustrations/line-a-yellow.png">
     <section class="wave wave-cta-mid flex-column" id="validation-start">
         <div class="wave-top">
             <img class="mask" src="/img/wave-mask-top.png">
-            <img class="line" src="/img/illustrations/line-a-pink.png">
-            <img class="line" src="/img/illustrations/line-a-yellow.png">
         </div>
         <div class="wave-interior flex-column">
             <h4>Let's work together to discover, prototype, and deploy the next big thing for your company. </h4>
             <a id="cta-mid" class="cta-button" href="" onclick="Calendly.showPopupWidget('https://calendly.com/forestgiant');return false;">Let's Chat</a>
         </div>
-        <div class="wave-bottom">
+        <div class="wave-bottom plx-group plx">
             <img class="mask" src="/img/wave-mask-bottom.png">
-            <img class="line" src="/img/illustrations/line-a-green.png"> 
+            <img class="line plx-layer plx-depth3 plx" src="/img/illustrations/line-a-green.png"> 
         </div>
     </section>
 </div>
