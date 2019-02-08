@@ -28,7 +28,7 @@
 
 .mask {
     // filter: $filterwhite;
-    @include filterwhite;
+    // @include filterwhite;
     z-index: $middle;
 }
 

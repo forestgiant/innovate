@@ -123,7 +123,7 @@ window.onload = function(fn) {
       { opacity: 0 },
       { opacity: 1 }, 
     ],
-      times: [0, 0.5]
+      times: [0, 0.75]
   });
   
   const annotationsControls = annotationsAnimation.start({
