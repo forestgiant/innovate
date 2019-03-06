@@ -1,5 +1,8 @@
 #transformation {
     width: 100%;
+    /* Negative margin top included for a strange line that appears
+       between the hero image and the transformation section. */
+    margin-top: -1px;
 
     div {
         justify-content: space-evenly;
