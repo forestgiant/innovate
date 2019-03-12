@@ -1,92 +1,3 @@
-// Variables
-$gastro: 'gastromond', sans-serif;
-$source: 'Souce Sans Pro', sans-serif;
-$fgorange: #DF6C58;
-$fgtomato: #FC5847;
-$fgnavy: #263963;
-$fggreen: #50AA7B;
-$fgyellow: #E6AF21;
-$fgpink: #ECAFB5;
-$fgblack: #343434;
-$fggrey: #F2F2F2;
-$filterpink: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
-$filtergreen: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
-$filteryellow: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
-$filterblue: hue-rotate(-134deg) brightness(65%) saturate(83%) contrast(100%);
-$filterblack: hue-rotate(-74deg) brightness(42%) saturate(0%) contrast(100%);
-$filterwhite: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
-$filtergrey: hue-rotate(-74deg) brightness(250%) saturate(0%) contrast(100%);
-$top: 10;
-$middle: 5;
-$bottom: 0;
-
-
-// Mixins
-
-@mixin fliph {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-}
-
-@mixin flipv {
-    -moz-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-}
-
-@mixin fliphv {
-    -moz-transform: scale(-1, -1);
-    -o-transform: scale(-1, -1);
-    -webkit-transform: scale(-1, -1);
-    transform: scale(-1, -1);
-}
-
-@mixin background-2x($path, $ext: "png", $w: auto, $h: auto, $pos: left top, $repeat: no-repeat) {
-
-    $at1x_path: "#{$path}.#{$ext}";
-    $at2x_path: "#{$path}@2x.#{$ext}";
-   
-    background-image: url("#{$at1x_path}");
-    background-size: $w $h;
-    background-position: $pos;
-    background-repeat: $repeat;
-   
-    @media all and (-webkit-min-device-pixel-ratio : 1.5),
-    all and (-o-min-device-pixel-ratio: 3/2),
-    all and (min--moz-device-pixel-ratio: 1.5),
-    all and (min-device-pixel-ratio: 1.5) {
-      background-image: url("#{$at2x_path}"); 
-    }
-}
-
-@mixin filterpink {
-    -webkit-filter: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
-    filter: hue-rotate(-7deg) brightness(193%) saturate(98%) contrast(100%);
-}
-
-@mixin filtergreen {
-    -webkit-filter: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
-    filter: hue-rotate(154deg) brightness(106%) saturate(98%) contrast(100%);
-}
-
-@mixin filteryellow {
-    -webkit-filter: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
-    filter: hue-rotate(48deg) brightness(144%) saturate(70%) contrast(100%);
-}
-
-@mixin filterblue {
-    -webkit-filter: hue-rotate(-134deg) brightness(65%) saturate(83%) contrast(100%);
-    filter: hue-rotate(-134deg) brightness(65%) saturate(83%) contrast(100%);
-}
-
-@mixin filterwhite {
-    -webkit-filter: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
-    filter: hue-rotate(-74deg) brightness(300%) saturate(0%) contrast(100%);
-}
-
 // Calendly
 iframe {
     -webkit-filter: hue-rotate(158deg) brightness(99%) saturate(102%) contrast(100%);
@@ -104,6 +15,13 @@ img.yallfade {
     to   { opacity: 1; }
 }
 
+//Loadout - Global
+@import 'partials/variables';
+@import 'partials/mixins';
+
+//Loadout - Components
+@import 'partials/components/buttons.scss';
+
 // Loadout
 @import 'partials/reset';
 // @import 'partials/modernscale';
@@ -119,3 +37,7 @@ img.yallfade {
 @import 'partials/logofarm';
 @import 'partials/validation';
 @import 'partials/modal';
+
+// Page-Level Loadouts
+
+@import 'partials/pages/thanks';

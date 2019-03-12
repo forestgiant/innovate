@@ -192,25 +192,6 @@
     }
 }
 
-
-.cta-button {
-    display: inline-block;
-    font-family: $gastro;
-    font-size: 24px;
-    color: $fgnavy;
-    background: $fgyellow;
-    // box-shadow: 0 8px 19px 0 rgba(0,0,0,0.5);
-    padding: 1em 2.5em .75em 2.5em;
-    margin: 1.5em 0;
-    text-decoration: none;
-    transition: background-color 0.25s ease;
-}
-
-.cta-button:hover {
-    background: $fggreen;
-}
-
-
 @media only screen and (max-width: 836px) {
     .wave-cta-end .wave-interior div:first-child {
         text-align: center;
@@ -239,9 +220,5 @@
         :nth-child(1), :nth-child(2){
             width: 100%;
         }
-    }
-
-    .cta-button {
-        font-size: 20px;
     }
 }

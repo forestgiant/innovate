@@ -1,0 +1,31 @@
+.thanks {
+    background: url('/img/photos/process.jpg');
+    background-size: cover;
+    padding: 2em;
+    height: 90vh;
+    
+    h1 {
+        color: $fgtomato;
+    }
+
+    p {
+        color: white;
+        text-align: center;
+    }
+}
+
+.more-thanks {
+    background: $fggreen;
+    padding: 8em;
+
+    h2 {
+        color: $fgnavy;
+    }
+}
+
+.more-items {
+    flex-basis: 50%;
+    height: 50px;
+    background: white;
+}
+
