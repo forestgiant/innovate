@@ -123,7 +123,7 @@ window.onload = function(fn) {
       { opacity: 0 },
       { opacity: 1 }, 
     ],
-      times: [0, 0.75]
+      times: [0, 0.5]
   });
   
   const annotationsControls = annotationsAnimation.start({
@@ -193,7 +193,7 @@ window.onload = function(fn) {
         // Trigger the first set of globe pieces fading out and the annotations fading in
         if (scrollPosition >= triggerPoint_Sphere2 && scrollPosition < triggerPoint_Sphere3) {
           animationProgress = (scrollPosition - triggerPoint_Sphere2) / scrollDuration; 
-          animationProgress = animationProgress <= 0.1 ? 0 : animationProgress;
+          //animationProgress = animationProgress <= 0.05 ? 0 : animationProgress;
           pieces02Controls.seek(animationProgress);
           annotationsControls.seek(animationProgress);
         }

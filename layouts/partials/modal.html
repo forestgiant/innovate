@@ -1,0 +1,26 @@
+<div class="modal-overlay" style="display: none;"></div>
+<div class="modal-wrapper" style="display: none;">
+    <div class="modal">
+        <div class="modal-exit">
+            <a href='#' class="modal-close"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="modal-content">
+            <h2 class="serif-heading">Innovate with giants.</h2>
+            <p>Drop your email below for additional information + case studies.</p>
+            <form class="modal-form flex-column" id="cta-modal" action="/thank-you" netlify-honeypot="honey" name="cta-modal" method="POST" netlify>
+                <div class="form-row">
+                    <input type="email" id="email" placeholder="EMAIL ADDRESS" name="user_email" required>
+                </div>
+                <div class="form-row honey">
+                    <label for="honey">Don't fill this out if you're human</label>
+                    <input type="text" id="honey" name="honey"/>
+                </div>
+                <button type="submit" class="modal-button">Submit</button>
+            </form>
+        </div>
+        <div class="modal-wave">
+            <!-- <img class="modal-line" src="/img/illustrations/line-a-pink.png"> -->
+            <img class="modal-mask" src="/img/wave-mask-top.png">
+        </div>
+    </div>
+</div>
