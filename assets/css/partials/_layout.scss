@@ -5,6 +5,16 @@ width: 85%;
 max-width: 1400px;
 }
 
+.shortflex {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+}
+
+.column {
+    flex: 1;
+}
+
 .flex-column {
     display: flex;
     flex-direction: column;
@@ -41,6 +51,13 @@ footer {
 
     a:hover {
         color: $fggreen;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .shortflex {
+      flex-direction: column;
     }
 }
 

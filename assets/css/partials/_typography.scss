@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6, .product-title {
     font-family: $gastro;
     color: $fgnavy;
     padding: .25em 0;
+
+    a {
+        color: $fgnavy;
+    }
 }
 
 h1 {
@@ -37,6 +41,15 @@ p {
 em {
     font-style: italic;
 }
+
+// a {
+//     color: $fgorange;
+//     text-decoration: none;
+// }
+
+// a:hover {
+//     color: $fggreen;
+// }
 
 .biggie {
     font-size: 26px;
@@ -106,6 +119,18 @@ strong {
     }
 }
 
+ol, ul {
+    list-style: inside;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    font-family: 'Source Sans Pro';
+    font-weight: 200;
+    font-size: 18px;
+    color: $fgblack;
+    line-height: 1.4;
+}
+
+
 @media only screen and (max-width:1200px) {
 
     .biggie {
@@ -148,10 +173,6 @@ strong {
 
     p, .biggie {
         font-size: 1.25em;
-    }
-
-    blockquote p  {
-        font-size: .5em;
     }
 
 }

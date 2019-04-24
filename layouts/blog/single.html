@@ -1,11 +1,11 @@
 {{ partial "head.html" . }}
 {{ partial "nav.html" . }}
 
-<div class="blog-hero" style="background-image:url({{ .Params.hero_img }});">
+<div class="blog-hero" style="background-image:url({{ .Params.hero_img }}); background-position:{{ .Params.hero_position }};">
 
 </div>
 
-<div class="blog-container flex-column">
+<div class="blog-container flex-row">
     <article class="blog-content">
         <h1 class="blog-title">{{ .Title }}</h1>
         
