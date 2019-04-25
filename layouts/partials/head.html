@@ -14,9 +14,9 @@
     <title>{{ if .IsPage }}{{ .Params.meta_title }}{{ else if .IsNode }}{{ .Title }}{{ end }}</title>
     <meta name="description" content="Forest Giant generates and validates innovative ideas that transform enterprise businesses. Are you ready to craft the next big thing for your company?" />
     {{ if eq .Params.noindex "true" }}<meta name="robots" content="noindex, nofollow">{{ end }}
-    {{ if eq .Params.relcanon "true"}}<link href="{{ .Params.relcanon_url }}" rel="canonical" />{{ end }}
+    {{ if isset .Params "relcanon" }}<link href="{{ .Params.relcanon }}" rel="canonical" />{{ else }}<link href="{{ .Permalink }}" rel="canonical" />{{ end }}
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta name="google-site-verification" content="MpEWlZsDJjt_CWf0aT0WvDBY_H_gqpLlo6tecySFu1M" />
 
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
