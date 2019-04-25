@@ -10,7 +10,7 @@
             <div class="featured-blog">
                 <h2 class="featured-blog-title">{{ .Title }}</h2>
                 <p class="biggie">{{ .Params.summary }}</p>
-                <a class="btn featured-blog-button" href="{{ .Permalink }}">Read More</a>
+                <a class="btn featured-blog-button" href="{{ .RelPermalink }}">Read More</a>
             </div>
         </div>
     </section>
@@ -28,7 +28,7 @@
         {{ range .Paginator.Pages }}
             {{ if not (in .Params.featured "true" )}}
 
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="blog-card-container" style="background-image:url({{ .Params.grid_img }});">
                         <div class="blog-card flex-column">
                             <p>{{ .Date.Format "01.02.06" }}</p>
