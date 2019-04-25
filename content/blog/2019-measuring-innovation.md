@@ -28,7 +28,7 @@ I’m going to be frank. If you came to find a few golden egg metrics in bold, 3
 ## Creating the Framework
 Innovation can take the form of many things, but when it comes to measurement, it’s all about alignment. While there are millions of ways to look at data and likely thousands of different (and fragmented) metrics to measure innovation within your organization, the question soon becomes **why do I measure** rather than **how do I measure**. 
 
-> The crux of innovation measurement is to understand the project that measurement should solve for the organization and, based on that insight, to design and implement a useful and usable innovation measurement framework appropriate to the organization’s needs.
+> "The crux of innovation measurement is to understand the project that measurement should solve for the organization and, based on that insight, to design and implement a useful and usable innovation measurement framework appropriate to the organization’s needs."
 >
 >[MIT Sloan Management Review](https://sloanreview.mit.edu/article/creating-better-innovation-measurement-practices/)
 
