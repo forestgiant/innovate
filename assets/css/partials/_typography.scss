@@ -5,6 +5,7 @@ h1, h2, h3, h4, h5, h6, .product-title {
 
     a {
         color: $fgnavy;
+        text-decoration: none;
     }
 }
 
@@ -128,6 +129,11 @@ ol, ul {
     font-size: 18px;
     color: $fgblack;
     line-height: 1.4;
+}
+
+li a, blockquote a {
+    color: $fgorange;
+    text-decoration: none;
 }
 
 

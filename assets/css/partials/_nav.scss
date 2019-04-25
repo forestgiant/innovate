@@ -19,23 +19,37 @@
 
 #menu li {
     margin:0 .5em;
-    padding: .5em .75em;
+    padding: .4em 1em .5em 1em;
+    list-style-type: none;
+    
 
     a {
         font-family: $source;
+        font-weight: 700;
         font-size: .75em;
         text-decoration: none;
         text-transform: uppercase;
+        color: $fgblack;
     }
+
+    a:hover {
+        color: $fgorange;
+    }
+
 }
 
 #nav-cta {
     background-color: $fgtomato;
     
     a {
-        color: white;
+        color: white !important;
     }
 }
+
+#nav-cta:hover {
+    background-color: $fggreen;
+}
+
 
 .sticky {
     position: sticky;  
