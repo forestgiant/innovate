@@ -64,32 +64,3 @@
 .modal-mask {
     height: 50px;
 }
-
-// THE FORM
-
-.modal-form {
-    width: 100%;
-    margin-top: 1em;
-}
-
-.form-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: .5em 0;
-    width: 100%;
-
-    input {
-        padding: 1em;
-        // background: $fggreen;
-        border: 1px solid lightgrey;
-        width: 80%;
-        font-size: 14px;
-        color: $fgblack;
-    }
-}
-
-.honey {
-    display: none;
-}
