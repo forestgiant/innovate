@@ -6,7 +6,7 @@
     cursor: pointer;
 }
 
-.cta-button, .modal-button, .contact-button {
+.cta-button, .modal-button, .contact-button, .download-button {
     font-family: $gastro;
     color: $fgnavy;
     background: $fgyellow;
@@ -14,11 +14,11 @@
     border: none;
 }
 
-.cta-button {
+.cta-button, .download-button {
     font-size: 24px;
 }
 
-.cta-button:hover, .modal-button:hover, .contact-button:hover,  {
+.cta-button:hover, .modal-button:hover, .contact-button:hover, .download-button:hover  {
     background: $fggreen;
 }
 
