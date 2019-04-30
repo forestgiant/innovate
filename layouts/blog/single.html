@@ -1,0 +1,44 @@
+{{ partial "head.html" . }}
+{{ partial "nav.html" . }}
+
+<div class="blog-hero" style="background-image:url({{ .Params.hero_img }}); background-position:{{ .Params.hero_position }};">
+
+</div>
+
+<div class="blog-container flex-row">
+    <article class="blog-content">
+        <h1 class="blog-title">{{ .Title }}</h1>
+        
+        <section class="dateline">
+                <time datetime="{{ .Date }}">{{ .Date.Format "01.02.06" }}</time><b>|</b><span>by {{ .Params.author_name }}</span>
+        </section>
+        
+        <!-- Start Accesibility Fixes for Hugo -->
+
+        {{ $reAltIn := "<p><img src=\"([^\"]+)\" alt=\"([^\"]+)\" /></p>" }}
+        {{ $reAltOut := "<figure><img src=\"$1\" alt=\"$2\"></figure>" }}
+        {{ $altContent := .Content | replaceRE $reAltIn $reAltOut | safeHTML }}
+        
+        {{ $reAltTitleIn := "<p><img src=\"([^\"]+)\" alt=\"([^\"]+)\" title=\"([^\"]+)\" /></p>" }}
+        {{ $reAltTitleOut := "<figure><img src=\"$1\" alt=\"$2\" title=\"$3\"><figcaption>$2</figcaption></figure>" }}
+        {{ $finalContent := $altContent | replaceRE $reAltTitleIn $reAltTitleOut | safeHTML }}
+        
+        {{ $finalContent }}
+
+        <!-- End Accesibility Fixes for Hugo -->
+    
+        <!-- <section class="authorline flex-row">
+            <figure style="background-image:url({{ .Params.author_img }});"></figure>
+            <div>
+                <p>{{ .Params.author_name }}</p>
+                <p>{{ .Params.author_title }}</p>
+                <a href="http://www.twitter.com/forestgiant" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section> -->
+
+        {{ partial "related.html" . }}
+
+    </article>
+</div>
+
+{{ partial "footer.html" . }}
