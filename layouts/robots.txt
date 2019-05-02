@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: 
+
+Sitemap: https://innovate.forestgiant.com/sitemap.xml
