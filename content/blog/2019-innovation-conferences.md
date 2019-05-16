@@ -23,6 +23,8 @@ social_img = "/img/blog/innovation-conferences-social.jpg"
 
 +++
 
+<!-- {{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}} -->
+
 Whip out your calendar, baby! We’ve done the dirty work to make sure your year gets off to a productive start by organizing some of the biggest and best innovation events in the US. This list will continue to grow as more events are announced (most fall/winter events have yet to be included), so check back often!
 
 ![Think conference attendees looking towards stage](/img/blog/innovation-conferences-think.jpg)
