@@ -1,8 +1,8 @@
-<div class="modal-content">
+<div class="form-shortcode">
     <hr class="hr-top">
     <h2 class="serif-heading">{{ if .Get "title" }}{{ .Get "title" }}{{ else }}Innovate with giants.{{ end }}</h2>
     <p>{{ if .Get "text" }}{{ .Get "text" }}{{ else }}Drop your email below for additional information + case studies.{{ end }}</p>
-    <form class="modal-form flex-column" id="cta-modal" action="/thank-you" netlify-honeypot="honey" name="cta-modal" method="POST" netlify>
+    <form class="modal-form flex-column" id="cta-blog" action="/thank-you" netlify-honeypot="honey" name="cta-blog" method="POST" netlify>
         <div class="form-row">
             <input type="email" id="email" placeholder="EMAIL ADDRESS" name="user_email" required>
         </div>

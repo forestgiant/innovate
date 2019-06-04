@@ -23,8 +23,6 @@ social_img = "/img/blog/innovation-conferences-social.jpg"
 
 +++
 
-<!-- {{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}} -->
-
 Whip out your calendar, baby! We’ve done the dirty work to make sure your year gets off to a productive start by organizing some of the biggest and best innovation events in the US. This list will continue to grow as more events are announced (most fall/winter events have yet to be included), so check back often!
 
 ![Think conference attendees looking towards stage](/img/blog/innovation-conferences-think.jpg)
@@ -68,6 +66,8 @@ If you’re not into high level presentations and want to dig right in, Impact f
 ##### October 17-18, 2019 | Sonoma County, CA
 
 As one of the most exclusive events on our list, Harvest Summit is an invite-only innovation event that brings together a select group of corporate innovators to California’s wine country. If sprawling conventions aren’t your thing, the more intimate Harvest Summit will give you the opportunity to learn and network with the industry’s cream of the crop. Interested parties may apply to attend on their website. 
+
+{{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}}
 
 ### [**Front End of Innovation**](https://marketing.knect365.com/feiusa/)
 ##### May 14-16, 2019 | Boston, MA

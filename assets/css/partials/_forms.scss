@@ -31,16 +31,27 @@
 
 // Blog Shortcode Version
 
-.hr-top, .hr-bottom {
-    border: 3px solid $fgtomato;
-}
+.form-shortcode {
+    text-align: center;
+    padding: 2em 0 3em 0;
+    background: #fff;
 
-.hr-top {
-    margin-bottom: 50px;
-    box-shadow: 0 20px 20px -20px #333;
-
-}
-
-.hr-bottom {
-    margin-top: 50px;
+    h2 {
+        font-family: $gastro !important;
+        font-size: 42px;
+    }
+    
+    .hr-top, .hr-bottom {
+        border: 3px solid $fgtomato;
+    }
+    
+    .hr-top {
+        margin-bottom: 50px;
+        box-shadow: 0 20px 20px -20px #333;
+    
+    }
+    
+    .hr-bottom {
+        margin-top: 50px;
+    }
 }

@@ -43,6 +43,7 @@ In the realm of innovation measurement, metrics are split between two major cate
 {{<flex>}}
 {{<column>}}
 
+
 ### Input Metrics
 
 - # of workshops run
@@ -66,6 +67,8 @@ In the realm of innovation measurement, metrics are split between two major cate
 {{</flex>}}
 
 Regardless of which metrics are chosen, it’s recommended that companies review and revise measurement practices regularly. For additional ideas on metrics, check out our resources section at the bottom of this page.
+
+{{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}}
 
 ## Innovation Cycle Times
 
