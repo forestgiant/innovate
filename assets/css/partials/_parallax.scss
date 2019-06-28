@@ -32,7 +32,7 @@
 
 .plx-depth1 {
   transform: translateZ(-0.05px) scale(1.05) !important;
-  z-index: 10;
+  // z-index: 10;
 }
 
 .plx-depth2 {
@@ -42,11 +42,11 @@
 
 .plx-depth3 {
   transform: translateZ(-0.25px) scale(1.25) !important;
-  z-index: 0;
+  z-index: -10;
 }
 
 .plx-depth4 {
-  transform: translateZ(-0.5px) scale(1.5) !important;
+  transform: translateZ(-0.15px) scale(1.5) !important;
   z-index: -10;
 }
 
