@@ -39,7 +39,7 @@
             z-index: $bottom;
         }
         :nth-child(3){
-            z-index: $top;
+            z-index: $deep;
         }
     }
 
@@ -98,6 +98,7 @@
     .wave-bottom {
         :nth-child(2){
            @include fliph;
+           z-index: $deep;
         }
     }
 }
@@ -107,7 +108,7 @@
 
     .wave-top {
         :nth-child(2){
-            z-index: $top;
+            z-index: $deep;
             @include fliph;
         }
         :nth-child(3){
