@@ -1,6 +1,6 @@
 +++
 
-date = "2019-04-23"
+date = "2019-09-11"
 title = "Top Innovation Conferences of 2019"
 slug = "/innovation-conferences"
 featured = "false"
@@ -10,7 +10,7 @@ category_title = "Blog post"
 subtitle = "Events"
 
 meta_title = "The Top Innovation Conferences of 2019"
-description = "We curated all of 2019's top innovation conferences, summits, and events in the US - take a look and plan your year of learning!"
+description = "We curated all of 2019's top innovation conferences, summits, and events in the US and abroad - it's time to plan your year of learning!"
 
 author_name = "Jessica Elle"
 author_title = "Digital Marketing"
@@ -23,12 +23,47 @@ social_img = "/img/blog/innovation-conferences-social.jpg"
 
 +++
 
-Whip out your calendar, baby! We’ve done the dirty work to make sure your year gets off to a productive start by organizing some of the biggest and best innovation events in the US. This list will continue to grow as more events are announced (most fall/winter events have yet to be included), so check back often!
+Whip out your calendar, baby! We’ve done the dirty work to make sure your 2019 gets off to a productive start by organizing some of the biggest and best innovation conferences in the US and abroad. 
+
+If you feel like we’re missing anything, reach out to us at hello@forestgiant.com to get it included! 
 
 ![Think conference attendees looking towards stage](/img/blog/innovation-conferences-think.jpg)
 
-## Innovation Conferences + Events
+## Upcoming US Innovation Conferences
 Ranging from behemoth tech innovation conferences to more intimiate summits in the middle of California's wine country, there's something for everyone. 
+
+### [**Harvest Summit**](http://harvestsummit.com/)
+##### October 17-18, 2019 | Sonoma County, CA
+
+As one of the most exclusive events on our list, Harvest Summit is an invite-only innovation event that brings together a select group of corporate innovators to California’s wine country. If sprawling conventions aren’t your thing, the more intimate Harvest Summit will give you the opportunity to learn and network with the industry’s cream of the crop. Interested parties may apply to attend on their website. 
+
+### [**Impact**](https://impact.innovationleader.com/)
+##### October 23-24, 2019 | San Francisco, CA
+
+If you’re not into high level presentations and want to dig right in, Impact focuses on off-the-record interactive whiteboard sessions and workshops powered by industry leaders and conference peers over a 2-day period. Impact is a sound choice for corporate innovators who want concrete takeaways like templates and member-contributed tools instead of only notes. Registration starts at $1595 with prices gradually increasing closer to the event date.
+
+### [**The Collective**](https://events.cbinsights.com/thecollective/)
+##### Dec 10-11, 2019 | New York, NY
+
+For those looking for a more enterprise event, The Collective promises two days of corporate strategy, innovation, M&A, and more to help attendees learn how to drive transformational growth. 2019’s event has a pretty stacked list of speakers including the Chief Product Officer of Adobe, Chief Strategy Officer of Goldman Sachs, Founder of 1-800-Flowers, and more. At the time of writing, single tickets are $2,495 with discounts given for multiple tickets. 
+
+{{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}}
+
+## Upcoming International Innovation Conferences
+
+### [**Global Innovation Forum**](https://giflondon.com)
+##### November 20-21, 2019 | London, UK
+
+Innovators, entrepreneurs, and inventors gather in London to discuss the latest trends in innovation, design, creativity, digital, entrepreneurship, and a very healthy dose of playful fun. Expect plenty of speakers and activities from a wide range of interests  - many of which are  geared to engage in a way that you may have never seen before (Laughter Yoga and Playmobil Pro Workshop, anyone?). Passes start at €1850.
+
+### [**TECHNINNOVATION**](https://www.techinnovation.com.sg/)
+##### November 11-13, 2019 | Singapore
+Held in conjunction with Singapore FinTech Festival (SFF) and the Singapore Week of Innovation and Technology (SWITCH), the TECHINNOVATION conference is in its eighth year in providing a hub for the region’s technology and business innovators to meet, learn, and grow. 3day tickets are priced from S$599-S$899.
+
+![Woman presenting at the SXSW 2018 conference](/img/blog/innovation-conferences-sxsw.jpg)
+
+## Past Innovation Conferences & Events
+Already planning for 2020? The following events are likely to get new dates for 2020 - expect some fresh information as we near closer to the new year!
 
 ### [**Think**](https://www.ibm.com/events/think/)
 ##### February 12-15, 2019 | San Francisco, CA
@@ -55,19 +90,6 @@ If you’re looking for demos, workshops, and the wonderfully named “trend saf
 ##### March 7, 2019 | Chicago, IL
 
 Hosted by The Economist, this yearly innovation event challenges all industries to think like technology companies to compete in the global economy. Passes are $1595 with discounts available for academic, government, public sector, charity, and NGO attendees. 
-
-
-### [**Impact**](https://impact.innovationleader.com/)
-##### October 23-24, 2019 | San Francisco, CA
-
-If you’re not into high level presentations and want to dig right in, Impact focuses on off-the-record interactive whiteboard sessions and workshops powered by industry leaders and conference peers over a 2-day period. Impact is a sound choice for corporate innovators who want concrete takeaways like templates and member-contributed tools instead of only notes. Registration starts at $1595 with prices gradually increasing closer to the event date.
-
-### [**Harvest Summit**](http://harvestsummit.com/)
-##### October 17-18, 2019 | Sonoma County, CA
-
-As one of the most exclusive events on our list, Harvest Summit is an invite-only innovation event that brings together a select group of corporate innovators to California’s wine country. If sprawling conventions aren’t your thing, the more intimate Harvest Summit will give you the opportunity to learn and network with the industry’s cream of the crop. Interested parties may apply to attend on their website. 
-
-{{< form text="Start your innovation journey with Forest Giant. For more information, drop your email below." >}}
 
 ### [**Front End of Innovation**](https://marketing.knect365.com/feiusa/)
 ##### May 14-16, 2019 | Boston, MA
@@ -102,7 +124,7 @@ Looking to innovate through a primarily digital lens? Agenda highlights emerging
 
 For those in the retail sector, the Retail Innovation Conference is the beacon for the most ambitious, innovative leaders in the industry. This 2-day event focuses on technologies and strategies for retail in a changing world. Day passes start at $395.
 
-![Woman presenting at the SXSW 2018 conference](/img/blog/innovation-conferences-sxsw.jpg)
+{{< form text="Forest Giant partners with companies to strengthen their innovation efforts. Learn more about methods by dropping your email below." >}}
 
 ## Innovation-Adjacent Events
 While not totally focused on innovation, the following conferences typically have innovation-based presentations and workshops. Perfect for folks interested in getting their feet wet first, especially if you lean heavily towards tech, music, or design. 
