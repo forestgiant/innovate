@@ -6,6 +6,11 @@ h1, h2, h3, h4, h5, h6, .product-title {
     a {
         color: $fgnavy;
         text-decoration: none;
+        transition: all .2s ease;
+    }
+
+    a:hover {
+        color: $fgorange;
     }
 }
 
@@ -43,14 +48,15 @@ em {
     font-style: italic;
 }
 
-// a {
-//     color: $fgorange;
-//     text-decoration: none;
-// }
+a {
+    color: $fgorange;
+    text-decoration: none;
+    transition: all .2s ease;
+}
 
-// a:hover {
-//     color: $fggreen;
-// }
+a:hover {
+    color: $fgnavy;
+}
 
 .biggie {
     font-size: 26px;

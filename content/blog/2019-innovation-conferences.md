@@ -30,7 +30,7 @@ If you feel like we’re missing anything, reach out to us at hello@forestgiant.
 ![Think conference attendees looking towards stage](/img/blog/innovation-conferences-think.jpg)
 
 ## Upcoming US Innovation Conferences
-Ranging from behemoth tech innovation conferences to more intimiate summits in the middle of California's wine country, there's something for everyone. 
+Ranging from behemoth tech innovation conferences to more intimate summits in the middle of California's wine country, there's something for everyone. 
 
 ### [**Harvest Summit**](http://harvestsummit.com/)
 ##### October 17-18, 2019 | Sonoma County, CA
